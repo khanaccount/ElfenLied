@@ -1,0 +1,122 @@
+@import "styles/variables.scss";
+
+.footer {
+  background-color: $greyColor-08;
+  height: 454px;
+}
+
+.topFooter {
+  margin-top: 100px;
+  margin-bottom: 100px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.logo {
+  margin-bottom: 30px;
+  img {
+    width: 160px;
+    height: 48px;
+  }
+}
+
+.form {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 423px;
+  padding: 18px 24px;
+  border: 1px solid $greyColor-15;
+  border-radius: 12px;
+
+  input {
+    background-color: transparent;
+    border: none;
+    flex: 1;
+    height: 24px;
+    &::placeholder {
+      font-size: 18px;
+      font-weight: 500;
+      color: $greyColor-60;
+    }
+  }
+
+  .mail {
+    width: 20px;
+    height: 18px;
+    margin-right: 10px;
+  }
+  .feedbackBtn {
+    margin-left: 10px;
+    cursor: pointer;
+    img {
+      width: 25px;
+      height: 25px;
+    }
+  }
+}
+
+.links {
+  display: flex;
+  justify-content: space-between;
+  height: 254px;
+  width: 978px;
+}
+
+.link {
+  display: flex;
+  flex-direction: column;
+  a {
+    text-decoration: none;
+  }
+  .pageLink {
+    margin-bottom: 30px;
+    font-size: 20px;
+    font-weight: 500;
+    color: $greyColor-60;
+  }
+  .blockLink {
+    font-size: 18px;
+    font-weight: 500;
+  }
+  .blockLink:not(:last-child) {
+    margin-bottom: 20px;
+  }
+}
+
+.bottomFooterBg {
+  background-color: $greyColor-10;
+  height: 104px;
+}
+
+.rights {
+  display: flex;
+  p:not(:last-child) {
+    margin-right: 38px;
+  }
+}
+
+.bottomFooter {
+  padding-top: 26px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.socialMedia {
+  display: flex;
+  button {
+    cursor: pointer;
+    background-color: $greyColor-08;
+    border-radius: 75px;
+    width: 52px;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  button:not(:last-child) {
+    margin-right: 10px;
+  }
+}

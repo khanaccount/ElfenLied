@@ -1,0 +1,8 @@
+@import "styles/variables.scss";
+
+.swiper-button-disabled {
+  opacity: 0.5;
+}
+.currentPaginationValue {
+  color: $greyColor-60;
+}

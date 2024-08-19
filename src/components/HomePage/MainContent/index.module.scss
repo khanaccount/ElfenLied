@@ -1,0 +1,242 @@
+@import "styles/variables.scss";
+
+.mainContent {
+  background-color: $greyColor-08;
+  position: relative;
+  height: 814px;
+}
+
+.mainTop {
+  margin-top: 144px;
+  position: absolute;
+  z-index: 2;
+
+  .info {
+    display: flex;
+  }
+
+  .leftBlock {
+    width: 758px;
+  }
+  .mainText {
+    font-size: 60px;
+    font-weight: 600;
+    margin-bottom: 24px;
+    line-height: 120%;
+  }
+  .semiText {
+    font-size: 18px;
+    font-weight: 500;
+    color: $greyColor-60;
+  }
+
+  .buttons {
+    margin-top: 78px;
+
+    .learnBtn {
+      margin-right: 20px;
+      background-color: $greyColor-08;
+      cursor: pointer;
+      border-radius: 10px;
+      border: 1px solid $greyColor-15;
+      a {
+        text-decoration: none;
+        display: flex;
+        padding: 18px 24px;
+      }
+    }
+    .browseBtn {
+      background-color: $primaryColor-60;
+      cursor: pointer;
+      padding: 18px 24px;
+      border-radius: 10px;
+      border: 1px solid $greyColor-15;
+      a {
+        text-decoration: none;
+      }
+    }
+  }
+  .cards {
+    margin-top: 60px;
+    display: flex;
+    .card {
+      background-color: $greyColor-10;
+      border: 1px solid $greyColor-15;
+      border-radius: 12px;
+      justify-items: start;
+      padding: 16px 24px;
+      width: 240px;
+
+      h5 {
+        font-size: 40px;
+        font-weight: 700;
+        margin-bottom: 2px;
+      }
+      p {
+        font-size: 18px;
+        font-weight: 500;
+        color: $greyColor-60;
+      }
+    }
+    .card:not(:last-child) {
+      margin-right: 20px;
+    }
+  }
+}
+
+.ImgBlock {
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 1;
+  width: 920px;
+  height: 814px;
+  background: $greyColor-10 url("assets/vectors/header/bgsvg.svg");
+  background-size: 920px 814px;
+  background-repeat: no-repeat;
+
+  .mainImage {
+    width: 920px;
+    height: 814px;
+    position: relative;
+  }
+}
+
+.circleContainer {
+  position: relative;
+  right: 20px;
+
+  .circle {
+    transform: rotate(250deg);
+    width: 175px;
+    height: 175px;
+    background-color: $greyColor-08;
+    border: 2px solid $greyColor-15;
+    border-radius: 160px;
+    path {
+      fill: transparent;
+      padding: 10px;
+    }
+    text {
+      textPath {
+        fill: $absoluteColorWhite;
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 1.5px;
+      }
+    }
+  }
+
+  .innerCircle {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 47px;
+    right: 47px;
+    width: 80px;
+    height: 80px;
+    border-radius: 89px;
+    background-color: $greyColor-10;
+    border: 2px solid $greyColor-15;
+
+    img {
+      width: 21px;
+      height: 21px;
+    }
+  }
+}
+
+@media (max-width: 1440px) {
+  .mainContent {
+    height: 622px;
+  }
+  .mainTop {
+    margin-top: 98px;
+    .leftBlock {
+      width: 610px;
+    }
+    .mainText {
+      font-size: 46px;
+      margin-bottom: 20px;
+    }
+    .semiText {
+      font-size: 16px;
+    }
+
+    .buttons {
+      margin-top: 50px;
+
+      .learnBtn {
+        margin-right: 16px;
+        border-radius: 8px;
+        a {
+          padding: 14px 20px;
+        }
+      }
+      .browseBtn {
+        padding: 14px 20px;
+        border-radius: 8px;
+      }
+    }
+    .cards {
+      margin-top: 50px;
+      .card {
+        border-radius: 10px;
+        padding: 14px 20px;
+        width: 192px;
+
+        h5 {
+          font-size: 30px;
+          font-weight: 700;
+        }
+        p {
+          font-size: 16px;
+          font-weight: 500;
+        }
+      }
+      .card:not(:last-child) {
+        margin-right: 16px;
+      }
+    }
+  }
+  .ImgBlock {
+    width: 690px;
+    height: 622px;
+    background-size: 690px 622px;
+
+    .mainImage {
+      width: 690px;
+      height: 622px;
+      position: relative;
+    }
+  }
+  .circleContainer {
+    position: relative;
+    right: 5px;
+
+    .circle {
+      width: 129px;
+      height: 129px;
+      text {
+        textPath {
+          font-size: 11px;
+          font-weight: 600;
+        }
+      }
+    }
+
+    .innerCircle {
+      top: 35px;
+      right: 35px;
+      width: 58px;
+      height: 58px;
+      border-radius: 65px;
+
+      img {
+        width: 21px;
+        height: 21px;
+      }
+    }
+  }
+}

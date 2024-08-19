@@ -1,0 +1,129 @@
+@import "styles/variables.scss";
+.header {
+  background-color: $greyColor-10;
+  .bannerBg {
+    display: flex;
+    align-items: center;
+    height: 63px;
+    background: no-repeat url("assets/vectors/nav/navBg.svg");
+    border-bottom: 1px solid $greyColor-15;
+  }
+  .text {
+    display: flex;
+    a {
+      padding-left: 10px;
+    }
+  }
+  .closeBannerBtn {
+    cursor: pointer;
+    margin-right: 32px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 75px;
+    display: flex;
+    padding: 10px;
+
+    img {
+      width: 12px;
+      height: 12px;
+    }
+  }
+
+  .navBorder {
+    border-bottom: 1px solid $greyColor-15;
+  }
+  .nav {
+    height: 99px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .logo {
+    img {
+      width: 160px;
+      height: 48px;
+    }
+  }
+  .pageLists {
+    gap: 30px;
+    display: flex;
+    align-items: center;
+    .navBtn,
+    .navBtnActive {
+      cursor: pointer;
+      padding: 14px 24px;
+      border-radius: 10px;
+      border: 1px solid transparent;
+    }
+
+    a {
+      text-decoration: none;
+    }
+    .navBtnActive {
+      background-color: $greyColor-08;
+      border: 1px solid $greyColor-15;
+    }
+  }
+
+  .contactUs {
+    button {
+      background-color: $greyColor-08;
+      cursor: pointer;
+      border-radius: 10px;
+      border: 1px solid $greyColor-15;
+      a {
+        display: flex;
+        padding: 14px 24px;
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+@media (max-width: 1440px) {
+  .header {
+    .bannerBg {
+      height: 49px;
+    }
+    .text {
+      p {
+        font-size: 14px;
+      }
+      a {
+        font-size: 14px;
+      }
+    }
+    .closeBannerBtn {
+      padding: 8.5px;
+      img {
+        width: 10px;
+        height: 10px;
+      }
+    }
+    .nav {
+      height: 77px;
+    }
+    .logo {
+      img {
+        width: 113px;
+        height: 34px;
+      }
+    }
+    .pageLists {
+      gap: 24px;
+      .navBtn,
+      .navBtnActive {
+        padding: 12px 20px;
+        font-size: 14px;
+      }
+    }
+
+    .contactUs {
+      button {
+        font-size: 14px;
+        a {
+          padding: 14px 20px;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,114 @@
+@import "styles/variables.scss";
+
+.frequentlyQuestions {
+  margin-top: 110px;
+}
+
+.info {
+  margin-left: 20px;
+  margin-top: 20px;
+  padding-bottom: 80px;
+  .infoTitle {
+    font-size: 48px;
+    font-weight: 600;
+  }
+  .bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 35px;
+    p {
+      width: 1200px;
+      color: $greyColor-60;
+    }
+    button {
+      font-size: 18px;
+      font-weight: 500;
+      border: 1px solid $greyColor-15;
+      border-radius: 10px;
+      a {
+        display: flex;
+        text-decoration: none;
+        padding: 18px 24px;
+      }
+    }
+  }
+}
+
+.carousel {
+  border-bottom: 1px solid $greyColor-15;
+  padding-bottom: 50px;
+  .cards {
+    display: flex;
+    gap: 21px;
+  }
+  .card {
+    width: 512px;
+    height: 246px;
+    flex: 1;
+    border: 1px solid $greyColor-15;
+    border-radius: 12px;
+    gap: 30px;
+    padding: 50px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .frequentlyQuestionsTitle {
+    font-size: 24px;
+    font-weight: 600;
+  }
+  .frequentlyQuestionsText {
+    font-size: 18px;
+    font-weight: 500;
+    color: $greyColor-60;
+  }
+  .frequentlyQuestionsButton {
+    font-size: 18px;
+    font-weight: 500;
+    border: 1px solid #262626;
+    border-radius: 10px;
+    a {
+      display: flex;
+      text-decoration: none;
+      padding: 18px 24px;
+    }
+  }
+}
+
+.pagination {
+  margin-bottom: 110px;
+  padding-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  .arrows {
+    display: flex;
+    gap: 10px;
+  }
+  .customNext,
+  .customPrev {
+    width: 58px;
+    height: 58px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+    border-radius: 50%;
+    border: 1px solid $greyColor-15;
+  }
+  .customPrev {
+    transform: rotate(180deg);
+  }
+  .customPagination {
+    font-size: 20px;
+    font-weight: 500;
+  }
+  .currentPaginationValue {
+    color: $greyColor-60;
+  }
+}
