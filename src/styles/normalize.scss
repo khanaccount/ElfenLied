@@ -1,6 +1,12 @@
 /* http://meyerweb.com/eric/tools/css/reset/ */
 /* v1.0 | 20080212 */
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 html,
 body,
 div,
@@ -110,7 +116,10 @@ table {
 }
 
 button {
+  cursor: pointer;
   outline: none;
   background-color: transparent;
   border: none;
+  padding: 0;
+  margin: 0;
 }

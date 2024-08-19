@@ -105,15 +105,16 @@
   font-style: normal;
   font-size: 18px;
   font-weight: 500;
-  line-height: 150%;
+  line-height: 100%;
+  text-decoration: none;
   color: $absoluteColorWhite;
-  background-color: $greyColor-08;
 }
 
 html,
 body {
   height: 100%;
   margin: 0;
+  background-color: $PurpleColor;
 }
 
 #root {
@@ -127,8 +128,15 @@ body {
   flex: 1;
 }
 
+.header {
+  position: relative;
+}
+
 .container {
-  max-width: 1596px;
+  max-width: 1800px;
+  padding: 0;
   margin: 0 auto;
-  padding: 0 16px;
+  @media (max-width: 1799px) {
+    padding: 0 15px;
+  }
 }
