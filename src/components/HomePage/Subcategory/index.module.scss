@@ -1,0 +1,123 @@
+@import "styles/variables.scss";
+
+.subcategory {
+  margin-top: 0;
+  margin-bottom: 90px;
+  .filterBlock {
+    height: 23px;
+    margin-bottom: 73px;
+    position: relative;
+    justify-content: space-between;
+    display: flex;
+
+    .quantity {
+      p {
+        font-size: 15px;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        span {
+          margin-right: 8px;
+        }
+      }
+    }
+  }
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-auto-rows: auto;
+    grid-row-gap: 150px;
+    margin-bottom: 85px;
+    .card {
+      width: 274px;
+      display: flex;
+      flex-direction: column;
+
+      .image {
+        display: flex;
+
+        .mirrorColor {
+          margin-top: 7px;
+          margin-right: 24px;
+          display: inline-block;
+          background-color: #a5d4ff;
+          border: 3px solid #ffffff;
+          border-radius: 50%;
+          border: 1px solid;
+          width: 20px;
+          height: 20px;
+        }
+        img {
+          height: 260px;
+          max-width: 200px;
+        }
+      }
+      .text {
+        margin-top: 40px;
+        .title {
+          font-size: 28px;
+          margin-bottom: 15px;
+          text-align: center;
+        }
+        .semiText {
+          text-align: center;
+          padding-bottom: 19px;
+          border-bottom: 2px solid $LimeColor;
+        }
+        .buyBlock {
+          display: flex;
+          align-items: flex-start;
+          justify-content: space-between;
+          margin-top: 26px;
+          .cost {
+            display: flex;
+            gap: 7px;
+            .total {
+              font-family: "Floreste Wavy";
+              font-size: 28px;
+            }
+            .currency {
+              font-size: 20px;
+            }
+          }
+          .buyBtn {
+            display: flex;
+            align-items: center;
+            gap: 11px;
+            p {
+              font-size: 20px;
+            }
+            img {
+              width: 24px;
+              height: 24px;
+            }
+          }
+        }
+      }
+    }
+  }
+  .downloadMore {
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    height: 135px;
+    width: 356px;
+    background: rgba(255, 255, 255, 0.19);
+    border-radius: 50%;
+    border: 2px solid $LimeColor;
+    transform: rotate(-13deg);
+
+    .textBtn {
+      transform: rotate(13deg);
+      p {
+        font-size: 20px;
+      }
+      img {
+        width: 24px;
+        height: 24px;
+        margin-bottom: 6px;
+      }
+    }
+  }
+}

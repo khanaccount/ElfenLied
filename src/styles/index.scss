@@ -91,11 +91,66 @@
   font-weight: normal;
   font-style: normal;
 }
+@font-face {
+  font-family: "Gilory-Light";
+  src: url("./fonts/Gilroy-Light.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
 
 @font-face {
   font-family: "Floreste Wavy";
   src: url("./fonts/fonnts.com-FloresteWavy-BWPqd.otf") format("opentype");
   font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Floreste Wavy";
+  src: url("./fonts/fonnts.com-FloresteWavy-BWPqd.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Circe";
+  src: url("./fonts/Circe-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Circe";
+  src: url("./fonts/Circe-Light.ttf") format("truetype");
+  font-weight: 300; /* Light */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Circe";
+  src: url("./fonts/Circe-Thin.ttf") format("truetype");
+  font-weight: 100; /* Thin */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Circe";
+  src: url("./fonts/Circe-Bold.ttf") format("truetype");
+  font-weight: bold; /* Bold */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Circe";
+  src: url("./fonts/Circe-ExtraBold.ttf") format("truetype");
+  font-weight: 800; /* ExtraBold */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Circe";
+  src: url("./fonts/Circe-ExtraLight.ttf") format("truetype");
+  font-weight: 200; /* ExtraLight */
   font-style: normal;
 }
 

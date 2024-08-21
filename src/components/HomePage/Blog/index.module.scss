@@ -1,0 +1,134 @@
+@import "styles/variables.scss";
+
+.blog {
+  margin-bottom: 170px;
+  .top {
+    margin-bottom: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .left {
+      display: flex;
+      align-items: center;
+      .paginationDot {
+        margin-right: 45px;
+
+        .dot {
+          display: inline-block;
+          width: 10px;
+          height: 10px;
+          border-radius: 50%;
+          opacity: 0.3;
+          background: white;
+          &:not(:last-child) {
+            margin-right: 7px;
+          }
+          &:focus {
+            outline: none;
+          }
+        }
+        .activeDot {
+          background: white;
+          opacity: 1;
+        }
+      }
+      .blogTitle {
+        font-size: 60px;
+        text-transform: uppercase;
+      }
+    }
+    .paginationNumber {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      p {
+        font-family: "Floreste Wavy";
+        font-size: 40px;
+        text-transform: uppercase;
+      }
+      span {
+        border-bottom: 2px solid $LavenderColor;
+        width: 63px;
+      }
+    }
+  }
+  .cards {
+    :global {
+      .slick-list {
+        height: 376px;
+      }
+    }
+    .card {
+      display: flex !important;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      background-image: url("/src/assets/vectors/blog/cardBgSvg.svg");
+      background-repeat: no-repeat;
+      background-size: auto;
+      height: 342px;
+      padding: 25px;
+      img {
+        position: absolute;
+        left: 310px;
+        top: 13px;
+        width: 257px;
+        height: 317px;
+        border-radius: 28px;
+      }
+
+      .cardInfoTop {
+        display: flex;
+        align-items: center;
+        gap: 126px;
+        .number {
+          font-size: 15px;
+          opacity: 0.6;
+        }
+        .author {
+          width: 90px;
+          text-align: end;
+          line-height: 23px;
+        }
+      }
+      .articleTitle {
+        margin-bottom: 25px;
+        font-size: 28px;
+        line-height: 36px;
+        text-transform: uppercase;
+        width: 236px;
+      }
+      .publicationDate {
+        max-width: 110px;
+        line-height: 19px;
+      }
+      .readingTime {
+        position: absolute;
+        flex-direction: column;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        text-align: center;
+        top: 294px;
+        left: 130px;
+        width: 100px;
+        height: 81px;
+        border-radius: 50%;
+        background: $PurpleColor;
+        border: 2px solid $LimeColor;
+        padding: 13px 29px 18px 28px;
+        .readingBlock {
+          transform: rotate(-15deg);
+          .innerBlockTime {
+            font-family: "Floreste Wavy";
+            font-size: 35px;
+            height: 30px;
+          }
+          .innerBlockMin {
+            font-size: 17px;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,14 +1,17 @@
 import React from "react";
 
-import { HeaderNav } from "components/HomePage/HeaderNav";
-import { HeaderContent } from "components/HomePage/HeaderContent";
+import { Category } from "components/HomePage/Category";
+import { Subcategory } from "components/HomePage/Subcategory";
+import { Stripes } from "components/HomePage/Stripes";
+import { Blog } from "components/HomePage/Blog";
+
 export const Home: React.FC = () => {
   return (
     <React.Fragment>
-      <header className="header">
-        <HeaderNav />
-        <HeaderContent />
-      </header>
+      <Category />
+      <Subcategory />
+      <Stripes />
+      <Blog />
     </React.Fragment>
   );
 };

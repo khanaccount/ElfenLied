@@ -1,0 +1,99 @@
+@import "styles/variables.scss";
+
+.category {
+  margin-bottom: 200px;
+  .categoryTitle {
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 60px;
+  }
+  .categoryCards {
+    display: flex;
+    justify-content: space-between;
+  }
+  .card {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 435px;
+    height: 517px;
+    background-image: url("assets/vectors/category/cardBg.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    .title {
+      position: absolute;
+      font-size: 28px;
+      line-height: 36px;
+      text-transform: uppercase;
+      width: 141px;
+      height: 72px;
+      left: 20px;
+      top: 37px;
+    }
+    .lamp {
+      height: 248px;
+      width: auto;
+    }
+    .customMade {
+      position: absolute;
+      bottom: 60px;
+      left: 37px;
+      transform: translate(-50%, -50%) rotate(267deg);
+      textPath {
+        font-size: 4.5px;
+        letter-spacing: 0.2em;
+      }
+    }
+    .quantityBg {
+      position: absolute;
+      top: 178px;
+      right: -10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 81px;
+      height: 72px;
+      background: $PinkColor;
+      border-radius: 50%;
+      transform: rotate(-23deg);
+      .quantityText {
+        transform: rotate(23deg);
+        display: flex;
+        align-items: center;
+        .number {
+          margin-right: 3px;
+          font-family: "Floreste Wavy";
+          font-weight: 400;
+          font-size: 40px;
+          text-transform: uppercase;
+        }
+        .pieces {
+          font-size: 15px;
+        }
+      }
+    }
+    .arrowBtn {
+      position: absolute;
+      top: 445px;
+      right: 165px;
+      border-radius: 50%;
+      width: 105px;
+      height: 105px;
+      background: rgba(#ebe3ff, 0.19);
+      border: 2px solid $LimeColor;
+      img {
+        width: 34px;
+        height: 34px;
+      }
+      &:hover {
+        background-color: $LimeColor;
+        svg {
+          path {
+            stroke: $PurpleColor;
+          }
+        }
+      }
+    }
+  }
+}

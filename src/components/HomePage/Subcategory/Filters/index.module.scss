@@ -1,0 +1,144 @@
+@import "styles/variables.scss";
+
+.filters {
+  .main {
+    padding-bottom: 30px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    img {
+      width: 25px;
+      height: 25px;
+    }
+    p {
+      font-size: 18px;
+      line-height: 23px;
+      text-transform: uppercase;
+    }
+  }
+  .top,
+  .bottom {
+    transition: max-height 0.2s ease-in-out, opacity 0.2s ease-out;
+    height: 100%;
+    max-height: 516px;
+    opacity: 1;
+
+    &.collapsed {
+      max-height: 0;
+      opacity: 0;
+    }
+  }
+  .top {
+    width: 320px;
+    height: 212px;
+    background-color: $LavenderColor;
+    padding: 22px 30px;
+    border-radius: 40px;
+    p {
+      font-size: 20px;
+      line-height: 150%;
+    }
+
+    :global(.rc-slider-rail) {
+      background-color: white;
+    }
+    :global(.rc-slider-track) {
+      background-color: $LimeColor;
+    }
+    :global(.rc-slider-handle) {
+      background-color: $LimeColor;
+      width: 21px;
+      height: 21px;
+      box-sizing: border-box;
+      border: 5px solid $LavenderColor;
+      top: 0;
+      opacity: 1;
+      &::before {
+        content: "";
+        position: absolute;
+        width: 23px;
+        height: 23px;
+        top: -6px;
+        left: -5.2px;
+        border-radius: 50%;
+        border: 2px solid $LimeColor;
+      }
+    }
+    :global(.rc-slider-handle-dragging) {
+      border-color: none;
+      box-shadow: none;
+    }
+
+    .inputBlock {
+      display: flex;
+      justify-content: space-between;
+      margin: 21px 0;
+      .priceLabel {
+        background-color: $PurpleColor;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 7px;
+        padding: 7px 21px;
+        width: 123px;
+        border-radius: 11px;
+        font-size: 18px;
+        .priceInput {
+          font-size: 18px;
+          max-width: 70px;
+          background-color: transparent;
+          border: transparent;
+          -moz-appearance: textfield; /* Firefox */
+          appearance: textfield; /* Chrome, Safari, Edge, Opera */
+
+          &::-webkit-outer-spin-button,
+          &::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+          }
+        }
+      }
+    }
+  }
+  .bottom {
+    width: 320px;
+    height: 270px;
+    max-height: 304px;
+    background-color: $LavenderColor;
+    padding: 22px 30px;
+    border-radius: 40px;
+    .radioBlock {
+      margin-top: 28px;
+      .radioContainer {
+        display: flex;
+        align-items: flex-start;
+        gap: 11px;
+        &:not(:last-child) {
+          margin-bottom: 10px;
+        }
+        .radioBtn {
+          border-radius: 4px;
+          border: 2px solid $PurpleColor;
+          background-color: $LavenderColor;
+          width: 14px;
+          height: 14px;
+          appearance: none;
+          cursor: pointer;
+
+          &:checked {
+            background-color: $LimeColor;
+          }
+          &:not(:checked) {
+            background-color: $LavenderColor;
+          }
+        }
+        .radioLabel {
+          span {
+            opacity: 0.5;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,68 @@
+@import "styles/variables.scss";
+
+.stripes {
+  margin-bottom: 90px;
+  min-height: 215px;
+  height: 600px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  .firstStripe {
+    transform: rotate(-4deg);
+    background-color: $BlueColor;
+  }
+  .secondStripe {
+    background-color: $LavenderColor;
+    transform: rotate(4deg);
+  }
+  .firstStripe,
+  .secondStripe {
+    position: absolute;
+    width: 220%;
+    left: -60%;
+    height: 72px;
+    display: flex;
+    align-items: center;
+    .textBlockLeft {
+      animation: scrollLeft 6s linear infinite;
+    }
+    .textBlockRight {
+      animation: scrollRight 6s linear infinite;
+    }
+    .textBlockLeft,
+    .textBlockRight {
+      display: flex;
+      white-space: nowrap;
+      width: 100%;
+      gap: 80px;
+      p {
+        font-family: "Floreste Wavy";
+        font-weight: 400;
+        font-size: 40px;
+        text-transform: uppercase;
+      }
+      img {
+        width: 30px;
+        height: 30px;
+      }
+    }
+  }
+}
+@keyframes scrollLeft {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-10.8%);
+  }
+}
+
+@keyframes scrollRight {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(10.8%);
+  }
+}
