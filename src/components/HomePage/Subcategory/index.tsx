@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { AppContext } from "../../../contexts/AppContext";
 import s from "./index.module.scss";
 import { Filters } from "./Filters";
 
@@ -19,97 +20,353 @@ interface Item {
   color: string;
 }
 
-const items: Item[] = [
-  {
-    id: 1,
-    title: "Kristin",
-    description: "Зеркало напольное",
-    price: 150000,
-    imageSrc: mirror01,
-    color: "#F0B3EA",
-  },
-  {
-    id: 2,
-    title: "Luna",
-    description: "Зеркало настенное",
-    price: 120000,
-    imageSrc: mirror02,
-    color: "#8ECDFA",
-  },
-  {
-    id: 3,
-    title: "Aurelia",
-    description: "Зеркало круглое",
-    price: 135000,
-    imageSrc: mirror03,
-    color: "#FBE4CA",
-  },
-  {
-    id: 4,
-    title: "Orion",
-    description: "Зеркало с подсветкой",
-    price: 180000,
-    imageSrc: mirror04,
-    color: "#F0B5FA",
-  },
-  {
-    id: 5,
-    title: "Vega",
-    description: "Зеркало для ванной",
-    price: 100000,
-    imageSrc: mirror05,
-    color: "#F0B3EA",
-  },
-  {
-    id: 6,
-    title: "Nova",
-    description: "Зеркало в прихожую",
-    price: 110000,
-    imageSrc: mirror01,
-    color: "#F0B3EA",
-  },
-  {
-    id: 7,
-    title: "Stella",
-    description: "Зеркало настенное",
-    price: 140000,
-    imageSrc: mirror02,
-    color: "#8ECDFA",
-  },
-  {
-    id: 8,
-    title: "Aurora",
-    description: "Зеркало настольное",
-    price: 90000,
-    imageSrc: mirror03,
-    color: "#FBE4CA",
-  },
-  {
-    id: 9,
-    title: "Cassiopeia",
-    description: "Зеркало для спальни",
-    price: 125000,
-    imageSrc: mirror04,
-    color: "#F0B5FA",
-  },
-  {
-    id: 10,
-    title: "Cassiopeia",
-    description: "Зеркало настольное",
-    price: 125000,
-    imageSrc: mirror01,
-    color: "#F0B5FA",
-  },
-];
+const categorizedItems: { [key: number]: Item[] } = {
+  1: [
+    {
+      id: 1,
+      title: "Kristin",
+      description: "Зеркало напольное",
+      price: 150000,
+      imageSrc: mirror01,
+      color: "#F0B3EA",
+    },
+    {
+      id: 2,
+      title: "Sophia",
+      description: "Зеркало напольное",
+      price: 160000,
+      imageSrc: mirror02,
+      color: "#8ECDFA",
+    },
+    {
+      id: 3,
+      title: "Vivian",
+      description: "Зеркало напольное",
+      price: 170000,
+      imageSrc: mirror03,
+      color: "#FBE4CA",
+    },
+    {
+      id: 4,
+      title: "Ophelia",
+      description: "Зеркало напольное",
+      price: 155000,
+      imageSrc: mirror04,
+      color: "#F0B5FA",
+    },
+    {
+      id: 5,
+      title: "Aurora",
+      description: "Зеркало напольное",
+      price: 165000,
+      imageSrc: mirror05,
+      color: "#F0B3EA",
+    },
+    {
+      id: 6,
+      title: "Nova",
+      description: "Зеркало напольное",
+      price: 180000,
+      imageSrc: mirror01,
+      color: "#F0B3EA",
+    },
+    {
+      id: 7,
+      title: "Elara",
+      description: "Зеркало напольное",
+      price: 190000,
+      imageSrc: mirror02,
+      color: "#8ECDFA",
+    },
+    {
+      id: 8,
+      title: "Diana",
+      description: "Зеркало напольное",
+      price: 175000,
+      imageSrc: mirror03,
+      color: "#FBE4CA",
+    },
+    {
+      id: 9,
+      title: "Athena",
+      description: "Зеркало напольное",
+      price: 185000,
+      imageSrc: mirror04,
+      color: "#F0B5FA",
+    },
+    {
+      id: 10,
+      title: "Selene",
+      description: "Зеркало напольное",
+      price: 195000,
+      imageSrc: mirror05,
+      color: "#F0B3EA",
+    },
+  ],
+  2: [
+    {
+      id: 1,
+      title: "Luna",
+      description: "Торшер",
+      price: 90000,
+      imageSrc: mirror01,
+      color: "#F0B3EA",
+    },
+    {
+      id: 2,
+      title: "Stella",
+      description: "Лампа настольная",
+      price: 85000,
+      imageSrc: mirror02,
+      color: "#8ECDFA",
+    },
+    {
+      id: 3,
+      title: "Aurora",
+      description: "Торшер",
+      price: 95000,
+      imageSrc: mirror03,
+      color: "#FBE4CA",
+    },
+    {
+      id: 4,
+      title: "Orion",
+      description: "Лампа настольная",
+      price: 80000,
+      imageSrc: mirror04,
+      color: "#F0B5FA",
+    },
+    {
+      id: 5,
+      title: "Vega",
+      description: "Торшер",
+      price: 100000,
+      imageSrc: mirror05,
+      color: "#F0B3EA",
+    },
+    {
+      id: 6,
+      title: "Nova",
+      description: "Лампа настольная",
+      price: 75000,
+      imageSrc: mirror01,
+      color: "#F0B3EA",
+    },
+    {
+      id: 7,
+      title: "Cassiopeia",
+      description: "Торшер",
+      price: 105000,
+      imageSrc: mirror02,
+      color: "#8ECDFA",
+    },
+    {
+      id: 8,
+      title: "Aurelia",
+      description: "Лампа настольная",
+      price: 85000,
+      imageSrc: mirror03,
+      color: "#FBE4CA",
+    },
+    {
+      id: 9,
+      title: "Phoebe",
+      description: "Торшер",
+      price: 95000,
+      imageSrc: mirror04,
+      color: "#F0B5FA",
+    },
+    {
+      id: 10,
+      title: "Rhea",
+      description: "Лампа настольная",
+      price: 90000,
+      imageSrc: mirror05,
+      color: "#F0B3EA",
+    },
+  ],
+  3: [
+    {
+      id: 1,
+      title: "Oslo",
+      description: "Кресло",
+      price: 200000,
+      imageSrc: mirror01,
+      color: "#F0B3EA",
+    },
+    {
+      id: 2,
+      title: "Stockholm",
+      description: "Стул",
+      price: 80000,
+      imageSrc: mirror02,
+      color: "#8ECDFA",
+    },
+    {
+      id: 3,
+      title: "Copenhagen",
+      description: "Кресло",
+      price: 210000,
+      imageSrc: mirror03,
+      color: "#FBE4CA",
+    },
+    {
+      id: 4,
+      title: "Helsinki",
+      description: "Стул",
+      price: 85000,
+      imageSrc: mirror04,
+      color: "#F0B5FA",
+    },
+    {
+      id: 5,
+      title: "Reykjavik",
+      description: "Кресло",
+      price: 220000,
+      imageSrc: mirror05,
+      color: "#F0B3EA",
+    },
+    {
+      id: 6,
+      title: "Gothenburg",
+      description: "Стул",
+      price: 90000,
+      imageSrc: mirror01,
+      color: "#F0B3EA",
+    },
+    {
+      id: 7,
+      title: "Bergen",
+      description: "Кресло",
+      price: 230000,
+      imageSrc: mirror02,
+      color: "#8ECDFA",
+    },
+    {
+      id: 8,
+      title: "Trondheim",
+      description: "Стул",
+      price: 95000,
+      imageSrc: mirror03,
+      color: "#FBE4CA",
+    },
+    {
+      id: 9,
+      title: "Oslo",
+      description: "Кресло",
+      price: 240000,
+      imageSrc: mirror04,
+      color: "#F0B5FA",
+    },
+    {
+      id: 10,
+      title: "Stockholm",
+      description: "Стул",
+      price: 100000,
+      imageSrc: mirror05,
+      color: "#F0B3EA",
+    },
+  ],
+  4: [
+    {
+      id: 1,
+      title: "Atlas",
+      description: "Стол",
+      price: 180000,
+      imageSrc: mirror01,
+      color: "#F0B3EA",
+    },
+    {
+      id: 2,
+      title: "Hermes",
+      description: "Тумба",
+      price: 70000,
+      imageSrc: mirror02,
+      color: "#8ECDFA",
+    },
+    {
+      id: 3,
+      title: "Zeus",
+      description: "Стол",
+      price: 190000,
+      imageSrc: mirror03,
+      color: "#FBE4CA",
+    },
+    {
+      id: 4,
+      title: "Apollo",
+      description: "Тумба",
+      price: 75000,
+      imageSrc: mirror04,
+      color: "#F0B5FA",
+    },
+    {
+      id: 5,
+      title: "Ares",
+      description: "Стол",
+      price: 200000,
+      imageSrc: mirror05,
+      color: "#F0B3EA",
+    },
+    {
+      id: 6,
+      title: "Hephaestus",
+      description: "Тумба",
+      price: 80000,
+      imageSrc: mirror01,
+      color: "#F0B3EA",
+    },
+    {
+      id: 7,
+      title: "Dionysus",
+      description: "Стол",
+      price: 210000,
+      imageSrc: mirror02,
+      color: "#8ECDFA",
+    },
+    {
+      id: 8,
+      title: "Hera",
+      description: "Тумба",
+      price: 85000,
+      imageSrc: mirror03,
+      color: "#FBE4CA",
+    },
+    {
+      id: 9,
+      title: "Poseidon",
+      description: "Стол",
+      price: 220000,
+      imageSrc: mirror04,
+      color: "#F0B5FA",
+    },
+    {
+      id: 10,
+      title: "Hades",
+      description: "Тумба",
+      price: 90000,
+      imageSrc: mirror05,
+      color: "#F0B3EA",
+    },
+  ],
+};
 
 export const Subcategory: React.FC = () => {
   const [visibleItems, setVisibleItems] = useState(5);
+  const { selectedCategoryId } = useContext(AppContext);
+
+  const items = selectedCategoryId !== null ? categorizedItems[selectedCategoryId] || [] : [];
 
   const loadMoreItems = () => {
     setVisibleItems((prevVisibleItems) => prevVisibleItems + 5);
   };
   return (
-    <section className={`container ${s.subcategory}`}>
+    <section
+      id="catalog"
+      className={`container ${
+        selectedCategoryId !== null ? s.subcategory : s.subcategoryCollapsed
+      }`}
+    >
       <div className={s.filterBlock}>
         <Filters />
         <div className={s.quantity}>

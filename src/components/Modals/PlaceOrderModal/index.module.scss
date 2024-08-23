@@ -1,0 +1,238 @@
+@import "styles/variables.scss";
+
+.placeOrderModal {
+  transition: all 0.5s ease;
+  position: fixed;
+  z-index: 999;
+  background: $PurpleColor;
+  backdrop-filter: blur(100px);
+
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+
+  .thankYouContent {
+    height: 100%;
+    padding: 60px 30px;
+    position: relative;
+    .thx {
+      display: flex;
+      justify-content: space-between;
+      h2 {
+        width: 250px;
+        text-transform: uppercase;
+      }
+    }
+    .bgText {
+      display: flex;
+      gap: 84px;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      position: absolute;
+      z-index: 4;
+      h1 {
+        width: 688px;
+        font-family: "Floreste Wavy";
+        opacity: 0.2;
+        font-weight: 400;
+        font-size: 212px;
+        text-transform: uppercase;
+      }
+    }
+    .bgImg {
+      display: flex;
+      align-items: flex-end;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+
+      .imgBig {
+        width: 388px;
+        height: 759px;
+      }
+      .imgSmall {
+        max-width: 450px;
+        height: 450px;
+      }
+    }
+  }
+
+  .innerBlock {
+    padding: 60px 30px;
+    height: 100%;
+
+    .top {
+      display: flex;
+      justify-content: space-between;
+    }
+    .form {
+      margin-top: 66px;
+      width: 882px;
+      h4 {
+        margin: 100px 0;
+        font-size: 60px;
+        text-transform: uppercase;
+      }
+      .formGroup {
+        display: flex;
+        flex-direction: column;
+        &:not(:last-child) {
+          margin-bottom: 50px;
+        }
+        input {
+          background: transparent;
+          border: none;
+          border-bottom: 2px solid $LimeColor;
+        }
+
+        input::placeholder {
+          text-transform: uppercase;
+          color: $absoluteColorWhite;
+        }
+      }
+      .placeOrderBtn {
+        padding: 33px;
+        border-radius: 50%;
+        display: inline-block;
+        background: rgba(235, 227, 255, 0.19);
+        border: 2px solid $LimeColor;
+        transform: rotate(-15deg);
+        button {
+          transform: rotate(15deg);
+        }
+      }
+    }
+    .cards {
+      display: flex;
+      flex-direction: column;
+      max-height: 700px;
+      overflow-y: auto;
+      padding: 48px;
+      border-radius: 30px;
+      overflow-x: hidden;
+      background-color: rgba($modalBgColor, 0.18);
+      backdrop-filter: blur(100px);
+      gap: 40px;
+      .card {
+        gap: 45px;
+        display: flex;
+        .productImg {
+          height: 142px;
+          min-width: 88px;
+          width: 89px;
+          max-width: 100px;
+        }
+        .options {
+          width: 400px;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          .top {
+            display: flex;
+            justify-content: space-between;
+            padding-bottom: 30px;
+            border-bottom: 2px solid $LimeColor;
+
+            .productInfo {
+              .productName {
+                display: flex;
+                gap: 12px;
+
+                .mirrorColor {
+                  display: inline-block;
+                  background-color: #a5d4ff;
+                  border: 3px solid #ffffff;
+                  border-radius: 50%;
+                  border: 1px solid;
+                  width: 20px;
+                  height: 20px;
+                }
+                .title {
+                  text-transform: uppercase;
+                }
+              }
+              .description {
+                margin-top: 13px;
+              }
+            }
+            .deleteBtn {
+              width: 29px;
+              height: 29px;
+            }
+          }
+          .bottom {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            .cost {
+              display: flex;
+              gap: 7px;
+              .total {
+                font-family: "Floreste Wavy";
+                font-size: 28px;
+              }
+              .currency {
+                font-size: 20px;
+              }
+            }
+            .calculating {
+              display: flex;
+              align-items: center;
+              gap: 10px;
+              .currentNumber {
+                display: flex;
+                justify-content: center;
+                width: 25px;
+              }
+              .minus,
+              .plus,
+              .signsInActive {
+                width: 45px;
+                height: 45px;
+                border: 2px solid white;
+                border-radius: 50%;
+                background: rgba(255, 255, 255, 0.19);
+              }
+              .signsInActive {
+                opacity: 0.5;
+              }
+            }
+          }
+        }
+      }
+      .total {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        p {
+          text-transform: uppercase;
+        }
+        .placeOrderBtn {
+          padding: 33px 46px;
+          border-radius: 50%;
+          display: flex;
+          margin-top: 15px;
+          gap: 7px;
+          background: rgba(235, 227, 255, 0.19);
+          border: 2px solid $LimeColor;
+          transform: rotate(-6deg);
+          .orderTotal {
+            transform: rotate(6deg);
+            font-family: "Floreste Wavy";
+            font-weight: 400;
+            font-size: 30px;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+          }
+          .orderCurrency {
+            transform: rotate(6deg);
+            text-transform: uppercase;
+          }
+        }
+      }
+    }
+  }
+}

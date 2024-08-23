@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useContext } from "react";
+import { AppContext } from "../../../contexts/AppContext";
 import s from "./index.module.scss";
 
 import mirror0 from "assets/img/category/mirror0.png";
@@ -15,38 +16,21 @@ interface CardData {
   quantity: number;
   unit: string;
 }
+
 const cardData: CardData[] = [
-  {
-    id: 1,
-    image: mirror0,
-    title: "напольные зеркала",
-    quantity: 4,
-    unit: "шт",
-  },
-  {
-    id: 2,
-    image: mirror1,
-    title: "торшеры и лампы",
-    quantity: 4,
-    unit: "шт",
-  },
-  {
-    id: 3,
-    image: mirror2,
-    title: "кресла и стулья",
-    quantity: 4,
-    unit: "шт",
-  },
-  {
-    id: 4,
-    image: mirror3,
-    title: "столы \u200B \u200B и тумбы",
-    quantity: 4,
-    unit: "шт",
-  },
+  { id: 1, image: mirror0, title: "напольные зеркала", quantity: 4, unit: "шт" },
+  { id: 2, image: mirror1, title: "торшеры и лампы", quantity: 4, unit: "шт" },
+  { id: 3, image: mirror2, title: "кресла и стулья", quantity: 4, unit: "шт" },
+  { id: 4, image: mirror3, title: "столы и тумбы", quantity: 4, unit: "шт" },
 ];
 
 export const Category: React.FC = () => {
+  const { selectedCategoryId, setSelectedCategoryId } = useContext(AppContext);
+
+  const toggleSubcategory = (id: number) => {
+    setSelectedCategoryId(selectedCategoryId === id ? null : id);
+  };
+
   return (
     <section className={`container ${s.category}`}>
       <h2 className={s.categoryTitle}>категории</h2>
@@ -72,7 +56,10 @@ export const Category: React.FC = () => {
                 <p className={s.pieces}>{card.unit}</p>
               </div>
             </span>
-            <button className={s.arrowBtn}>
+            <button
+              className={selectedCategoryId === card.id ? s.arrowBtnActive : s.arrowBtn}
+              onClick={() => toggleSubcategory(card.id)}
+            >
               <ArrowSvg />
             </button>
           </div>

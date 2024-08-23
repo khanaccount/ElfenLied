@@ -1,0 +1,148 @@
+@import "styles/variables.scss";
+
+.contactsModalCollapsed {
+  display: none;
+  transition: all 0.5s ease;
+}
+
+.contactsModal {
+  transition: all 0.5s ease;
+  position: fixed;
+  z-index: 999;
+  background: rgba($PurpleColor, 0.25);
+  backdrop-filter: blur(100px);
+
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+
+  .innerBlock {
+    padding: 60px 30px;
+    height: 100%;
+
+    .top {
+      display: flex;
+      position: relative;
+      .closeModalBtn {
+        position: absolute;
+        top: 31px;
+        right: 31px;
+      }
+      .opacityText {
+        opacity: 0.5;
+        font-size: 15px;
+      }
+      .leftBlock {
+        display: flex;
+        justify-content: space-between;
+        gap: 170px;
+        padding: 83px 181px 78px 83px;
+        background-color: $PurpleColor;
+        width: 954px;
+        height: 466px;
+        border-top-left-radius: 30px;
+
+        .address {
+          height: 304px;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          .addressBlock {
+            height: 90px;
+            width: 293px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            .cityText {
+              font-size: 60px;
+              text-transform: uppercase;
+            }
+          }
+          span {
+            display: flex;
+            gap: 30px;
+          }
+        }
+
+        .media {
+          height: 304px;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          .contactBlock {
+            margin-top: 20px;
+            height: 90px;
+            width: 293px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            .numberText {
+              font-family: "Floreste Wavy";
+              font-weight: 400;
+              font-size: 40px;
+              text-transform: uppercase;
+            }
+          }
+          .socialMedia {
+            display: flex;
+            gap: 18px;
+            button {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              background-color: white;
+              width: 40px;
+              height: 40px;
+              border-radius: 50%;
+            }
+          }
+        }
+      }
+      .rightBlock {
+        background-color: $PinkColor;
+        width: 954px;
+        height: 466px;
+        border-top-right-radius: 30px;
+        padding: 83px 83px 50px 83px;
+        .formTitle {
+          text-transform: uppercase;
+          opacity: 0.5;
+          font-size: 15px;
+        }
+        .form {
+          margin-top: 66px;
+          .formGroup {
+            display: flex;
+            flex-direction: column;
+            &:not(:last-child) {
+              margin-bottom: 50px;
+            }
+            input {
+              background: transparent;
+              border: none;
+              border-bottom: 2px solid $LimeColor;
+            }
+
+            input::placeholder {
+              text-transform: uppercase;
+              color: $absoluteColorWhite;
+            }
+          }
+          .placeOrderBtn {
+            padding: 33px;
+            border-radius: 50%;
+            display: inline-block;
+            background: rgba(235, 227, 255, 0.19);
+            border: 2px solid $LimeColor;
+            transform: rotate(-6deg);
+            button {
+              transform: rotate(6deg);
+            }
+          }
+        }
+      }
+    }
+  }
+}

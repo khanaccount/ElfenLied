@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import s from "./index.module.scss";
-
-import lamp0 from "assets/img/headerContent/lamp0.png";
-import lamp1 from "assets/img/headerContent/lamp1.png";
-import lamp2 from "assets/img/headerContent/lamp2.png";
+import { CardModal } from "components/Modals/CardModal";
 import basketSvg from "assets/vectors/headerContent/basketSvg.svg";
+
+import img01 from "assets/img/headerContent/lamp0.png";
+import img02 from "assets/img/headerContent/lamp1.png";
+import img03 from "assets/img/headerContent/lamp2.png";
 
 interface CardData {
   id: number;
-  titleBg: string;
   name: string;
   description: string;
   price: number;
@@ -17,6 +17,8 @@ interface CardData {
   color: string;
   colorText: string;
   slide: string;
+  titleBg: string;
+  quantity: number;
 }
 
 const cardData: CardData[] = [
@@ -27,43 +29,60 @@ const cardData: CardData[] = [
     description: "Функциональная дизайнерская лампа для создания максимально комфортного освещения",
     price: 150000,
     currency: "₽",
-    imgSrc: lamp1,
+    imgSrc: img02,
     color: "#C5B0FA",
     colorText: "#CBB6FF",
     slide: "01",
+    quantity: 1,
   },
   {
     id: 2,
     titleBg: "Paint Here Glory",
-    description: "Функциональная дизайнерская лампа для создания максимально комфортного освещения",
-    price: 150000,
+    name: "Кресло",
+    description: "Эргономичное кресло для комфортного сидения и работы.",
+    price: 85000,
     currency: "₽",
-    imgSrc: lamp0,
-    name: "кресло",
+    imgSrc: img01,
     color: "#FA8EEF",
     colorText: "#FFA8F6",
     slide: "02",
+    quantity: 1,
   },
   {
     id: 3,
     titleBg: "Benjamin Moore",
-    description: "Функциональная дизайнерская лампа для создания максимально комфортного освещения",
-    price: 150000,
+    name: "Высокий стол",
+    description: "Современный высокий стол для вашего рабочего пространства.",
+    price: 120000,
     currency: "₽",
-    name: "высокий стол",
-    imgSrc: lamp2,
+    imgSrc: img03,
     color: "#AECFFF",
     colorText: "#C8DEFF",
     slide: "03",
+    quantity: 1,
   },
 ];
 
 export const HeaderContent: React.FC = () => {
   const [selectedCardId, setSelectedCardId] = useState<number | null>(null);
+  const [modalOpen, setModalOpen] = useState<boolean>(false);
+
+  const selectedCard = cardData.find((card) => card.id === selectedCardId);
 
   const handleCardClick = (id: number) => {
     setSelectedCardId(id === selectedCardId ? null : id);
   };
+
+  const handleBuyClick = (card: CardData) => {
+    setSelectedCardId(card.id);
+    setModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setModalOpen(false);
+    setSelectedCardId(null);
+  };
+
   return (
     <div className={`container ${s.headerContent}`}>
       <div className={s.cards}>
@@ -103,10 +122,16 @@ export const HeaderContent: React.FC = () => {
                       <p className={s.currency}>{card.currency}</p>
                     </div>
                   </div>
-                  <button className={s.buyBtn}>
+                  <button
+                    className={s.buyBtn}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handleBuyClick(card);
+                    }}
+                  >
                     <span className={s.innerCircle}></span>
                     <span className={s.externalCircle}></span>
-                    <img src={basketSvg} alt="basketSvg" />
+                    <img src={basketSvg} alt="Basket" />
                     <p>Купить</p>
                   </button>
                 </div>
@@ -120,6 +145,7 @@ export const HeaderContent: React.FC = () => {
           </div>
         ))}
       </div>
+      {modalOpen && selectedCard && <CardModal card={selectedCard} onClose={handleCloseModal} />}
     </div>
   );
 };

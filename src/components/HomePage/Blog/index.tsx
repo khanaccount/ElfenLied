@@ -128,7 +128,7 @@ export const Blog: React.FC = () => {
   };
 
   return (
-    <div className={`container ${s.blog}`}>
+    <div id="blog-anchor" className={`container ${s.blog}`}>
       <div className={s.top}>
         <div className={s.left}>
           <div className={s.paginationDot}>

@@ -34,9 +34,7 @@
 
   .blogContacts {
     display: flex;
-    button:not(:last-child) {
-      margin-right: 30px;
-    }
+    gap: 30px;
   }
 
   .searchUserAction {
@@ -57,6 +55,7 @@
     .userAction {
       display: flex;
       align-items: center;
+      margin-right: 70px;
       gap: 36px;
       button {
         width: 20px;

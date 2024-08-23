@@ -1,0 +1,175 @@
+@import "styles/variables.scss";
+@keyframes expand {
+  0% {
+    opacity: 0;
+    transform: scaleY(0);
+  }
+  100% {
+    opacity: 1;
+    transform: scaleY(1);
+  }
+}
+
+@keyframes collapse {
+  0% {
+    opacity: 1;
+    transform: scaleY(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scaleY(0);
+  }
+}
+
+.favoriteModal {
+  top: 60px;
+  right: 0;
+  position: absolute;
+  z-index: 998;
+  width: 640px;
+  border-radius: 30px;
+  background-color: rgba($modalBgColor, 0.18);
+  backdrop-filter: blur(100px);
+  opacity: 0;
+  transform: scaleY(0);
+  transform-origin: top;
+  overflow: hidden;
+  will-change: opacity, transform;
+  max-height: 0;
+  transition: max-height 0.3s ease;
+
+  &.favoriteModalOpen {
+    animation: expand 0.3s ease forwards;
+    max-height: 808px;
+  }
+
+  &.favoriteModalClosed {
+    animation: collapse 0.3s ease forwards;
+    max-height: 0;
+  }
+}
+
+.innerBlock {
+  padding: 30px;
+  .info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 53px;
+    h4 {
+      text-transform: uppercase;
+    }
+    .closeModal {
+      img {
+        width: 18px;
+        height: 18px;
+      }
+    }
+  }
+  .cards {
+    display: flex;
+    flex-direction: column;
+    max-height: 552px;
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    gap: 40px;
+    .card {
+      gap: 45px;
+      display: flex;
+      .productImg {
+        height: 142px;
+        min-width: 88px;
+        width: 89px;
+        max-width: 100px;
+      }
+      .options {
+        width: 400px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        .top {
+          display: flex;
+          justify-content: space-between;
+          padding-bottom: 30px;
+          border-bottom: 2px solid $LimeColor;
+          .productInfo {
+            .productName {
+              display: flex;
+              gap: 12px;
+
+              .mirrorColor {
+                display: inline-block;
+                background-color: #a5d4ff;
+                border: 3px solid #ffffff;
+                border-radius: 50%;
+                border: 1px solid;
+                width: 20px;
+                height: 20px;
+              }
+              .title {
+                text-transform: uppercase;
+              }
+            }
+            .description {
+              margin-top: 13px;
+            }
+          }
+          .favoriteBtn,
+          .favoriteBtnActive {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 54px;
+            height: 54px;
+            border-radius: 50%;
+            svg {
+              width: 16px;
+              height: 16px;
+            }
+          }
+          .favoriteBtn {
+            border: 2px solid $LimeColor;
+            background-color: rgba(255, 255, 255, 0.2);
+            svg {
+              path {
+                fill: rgba(255, 255, 255, 0.2);
+              }
+              path:not(:first-child) {
+                fill: $LimeColor;
+              }
+            }
+          }
+          .favoriteBtnActive {
+            border: 2px solid $PinkColor;
+            background-color: rgba(255, 255, 255, 0.2);
+            svg {
+              fill: white;
+              path {
+                fill: white;
+              }
+              path:not(:first-child) {
+                fill: $PinkColor;
+              }
+            }
+          }
+        }
+        .bottom {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          .cost {
+            display: flex;
+            gap: 7px;
+            .total {
+              font-family: "Floreste Wavy";
+              font-size: 28px;
+            }
+            .currency {
+              font-size: 20px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

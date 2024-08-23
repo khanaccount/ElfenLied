@@ -1,0 +1,216 @@
+@import "styles/variables.scss";
+
+.cardModalCollapsed {
+  display: none;
+  transition: all 0.5s ease;
+}
+
+.cardModal {
+  transition: all 0.5s ease;
+  position: fixed;
+  z-index: 999;
+  background-color: $PurpleColor;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+
+  .innerBlock {
+    padding: 60px;
+    height: 100%;
+
+    .top {
+      display: flex;
+      justify-content: space-between;
+
+      .right {
+        display: flex;
+        flex-direction: column;
+        align-items: end;
+        .favoriteBtn,
+        .favoriteBtnActive {
+          margin-top: 74px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 79px;
+          height: 79px;
+          border-radius: 50%;
+          svg {
+            width: 24px;
+            height: 24px;
+          }
+        }
+        .favoriteBtn {
+          border: 2px solid $LimeColor;
+          background-color: rgba(255, 255, 255, 0.2);
+          svg {
+            path:not(:first-child) {
+              fill: $LimeColor;
+            }
+          }
+        }
+        .favoriteBtnActive {
+          border: 2px solid $PinkColor;
+          background-color: rgba(255, 255, 255, 0.2);
+          svg {
+            fill: white;
+            path {
+              fill: white;
+            }
+            path:not(:first-child) {
+              fill: $PinkColor;
+            }
+          }
+        }
+        .closeModal {
+          display: flex;
+          align-items: center;
+          gap: 18px;
+          text-transform: uppercase;
+          color: #dad1f2;
+          img {
+            width: 20px;
+            height: 20px;
+          }
+        }
+      }
+    }
+    .middle {
+      margin-top: 73px;
+      position: relative;
+      .colorHeight {
+        display: flex;
+        justify-content: space-between;
+
+        .colorBlock {
+          display: flex;
+          align-items: center;
+          .option {
+            text-transform: uppercase;
+          }
+          span {
+            margin-left: 33px;
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            border: 3px solid white;
+            background-color: $PurpleDarkColor;
+          }
+          .nameColor {
+            line-height: 23px;
+            margin-left: 15px;
+            text-transform: uppercase;
+          }
+        }
+        .characteristics {
+          display: flex;
+          p {
+            text-transform: uppercase;
+          }
+          p:not(:last-child) {
+            margin-right: 20px;
+          }
+        }
+      }
+      .bg {
+        position: absolute;
+        left: 50%;
+        top: 50px;
+        transform: translate(-50%, -50%);
+        h1 {
+          width: 1800px;
+          position: absolute;
+          left: -725px;
+          top: 50%;
+          display: flex;
+          justify-content: center;
+          z-index: 1;
+          font-family: "Floreste Wavy";
+          font-weight: 400;
+          font-size: 330px;
+          text-transform: uppercase;
+          color: rgba($LavenderColor, 0.6);
+        }
+        img {
+          position: relative;
+          z-index: 2;
+          min-width: 340px;
+          min-height: 666px;
+        }
+      }
+    }
+    .bottom {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 385px;
+      .functional {
+        max-width: 349px;
+        font-size: 20px;
+        line-height: 154%;
+      }
+      .productInfo {
+        .title {
+          font-family: "Floreste Wavy";
+          font-weight: 400;
+          font-size: 100px;
+          text-transform: uppercase;
+        }
+        .cost {
+          display: flex;
+          justify-content: center;
+          margin-top: 22px;
+          gap: 7px;
+          .total {
+            font-family: "Floreste Wavy";
+            font-weight: 400;
+            font-size: 40px;
+            color: $LimeColor;
+          }
+          .currency {
+            color: $LimeColor;
+            font-weight: 400;
+            font-size: 20px;
+            text-transform: uppercase;
+          }
+        }
+      }
+      .buyBtn {
+        margin-right: 130px;
+        position: relative;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+
+        .innerCircle,
+        .externalCircle {
+          position: absolute;
+          top: 0;
+          left: 0;
+          border: 2px solid $LimeColor;
+          width: 356px;
+          border-radius: 50%;
+          height: 135px;
+          transform: rotate(-13deg);
+        }
+        .innerCircle {
+          background: rgba(255, 255, 255, 0.19);
+        }
+        .externalCircle {
+          transform: rotate(359deg);
+        }
+        img {
+          width: 24px;
+          height: 24px;
+          margin-right: 11px;
+          margin-left: 131px;
+        }
+        img,
+        p {
+          margin-bottom: 20px;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,198 @@
+@import "styles/variables.scss";
+@keyframes expand {
+  0% {
+    opacity: 0;
+    transform: scaleY(0);
+  }
+  100% {
+    opacity: 1;
+    transform: scaleY(1);
+  }
+}
+
+@keyframes collapse {
+  0% {
+    opacity: 1;
+    transform: scaleY(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scaleY(0);
+  }
+}
+
+.basketModal {
+  top: 60px;
+  right: 0;
+  position: absolute;
+  z-index: 998;
+  width: 640px;
+  border-radius: 30px;
+  background-color: rgba($modalBgColor, 0.18);
+  backdrop-filter: blur(100px);
+  opacity: 0;
+  transform: scaleY(0);
+  transform-origin: top;
+  overflow: hidden;
+  will-change: opacity, transform;
+  max-height: 0;
+  transition: max-height 0.3s ease;
+
+  &.basketModalOpen {
+    animation: expand 0.3s ease forwards;
+    max-height: 808px;
+  }
+
+  &.basketModalClosed {
+    animation: collapse 0.3s ease forwards;
+    max-height: 0;
+  }
+}
+
+.innerBlock {
+  padding: 22px 48px;
+  .info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 53px;
+    h4 {
+      text-transform: uppercase;
+    }
+    .closeModal {
+      img {
+        width: 18px;
+        height: 18px;
+      }
+    }
+  }
+  .cards {
+    display: flex;
+    flex-direction: column;
+    max-height: 552px;
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    gap: 40px;
+    .card {
+      gap: 45px;
+      display: flex;
+      .productImg {
+        height: 142px;
+        min-width: 88px;
+        width: 89px;
+        max-width: 100px;
+      }
+      .options {
+        width: 400px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        .top {
+          display: flex;
+          justify-content: space-between;
+          padding-bottom: 30px;
+          border-bottom: 2px solid $LimeColor;
+          .productInfo {
+            .productName {
+              display: flex;
+              gap: 12px;
+
+              .mirrorColor {
+                display: inline-block;
+                background-color: #a5d4ff;
+                border: 3px solid #ffffff;
+                border-radius: 50%;
+                border: 1px solid;
+                width: 20px;
+                height: 20px;
+              }
+              .title {
+                text-transform: uppercase;
+              }
+            }
+            .description {
+              margin-top: 13px;
+            }
+          }
+          .deleteBtn {
+            width: 29px;
+            height: 29px;
+          }
+        }
+        .bottom {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          .cost {
+            display: flex;
+            gap: 7px;
+            .total {
+              font-family: "Floreste Wavy";
+              font-size: 28px;
+            }
+            .currency {
+              font-size: 20px;
+            }
+          }
+          .calculating {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            .currentNumber {
+              display: flex;
+              justify-content: center;
+              width: 25px;
+            }
+            .minus,
+            .plus,
+            .signsInActive {
+              width: 45px;
+              height: 45px;
+              border: 2px solid white;
+              border-radius: 50%;
+              background: rgba(255, 255, 255, 0.19);
+            }
+            .signsInActive {
+              opacity: 0.5;
+            }
+          }
+        }
+      }
+    }
+  }
+  .placeOrder {
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-between;
+    .orderInfo {
+      .totalText {
+        text-transform: uppercase;
+      }
+      .orderCost {
+        margin-top: 15px;
+        display: flex;
+        gap: 7px;
+        .orderTotal {
+          font-family: "Floreste Wavy";
+          font-weight: 400;
+          font-size: 40px;
+          text-transform: uppercase;
+          letter-spacing: 0.04em;
+        }
+        .orderCurrency {
+          text-transform: uppercase;
+        }
+      }
+    }
+    .placeOrderBtn {
+      padding: 33px 46px;
+      border-radius: 50%;
+      background: rgba(235, 227, 255, 0.19);
+      border: 2px solid $LimeColor;
+      transform: rotate(-6deg);
+      button {
+        transform: rotate(6deg);
+      }
+    }
+  }
+}

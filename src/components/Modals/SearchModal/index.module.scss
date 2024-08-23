@@ -1,0 +1,149 @@
+@import "styles/variables.scss";
+
+.searchModalCollapsed {
+  display: none;
+  transition: all 0.5s ease;
+}
+
+.searchModal {
+  transition: all 0.5s ease;
+  position: fixed;
+  z-index: 999;
+  background: $PurpleColor;
+  backdrop-filter: blur(100px);
+
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+
+  .innerBlock {
+    height: 100%;
+
+    .searchContainer {
+      display: flex;
+      gap: 13px;
+      width: 100%;
+      height: 70px;
+      background-color: rgba(white, 0.3);
+      padding: 6px;
+      border-radius: 10000px;
+      .searchBtn {
+        width: 58px;
+        height: 58px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        background-color: $LavenderColor;
+        border: 1px solid white;
+        img {
+          width: 24px;
+          height: 23px;
+        }
+      }
+      .eraseText {
+        margin-right: 25px;
+      }
+      input {
+        width: 100%;
+        border: none;
+        background-color: transparent;
+
+        &::placeholder {
+          color: $absoluteColorWhite;
+        }
+      }
+    }
+    .searchItems {
+      .noResult {
+        position: absolute;
+        top: 50%;
+        left: 30%;
+      }
+      h4 {
+        margin: 100px 0;
+        font-size: 28px;
+        text-transform: uppercase;
+      }
+      .cards {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        justify-items: center;
+        gap: 105px;
+        width: 100%;
+        .card {
+          width: 100%;
+          max-width: 100%;
+          display: flex;
+          justify-content: center;
+          flex-direction: column;
+
+          .image {
+            display: flex;
+            justify-content: center;
+            position: relative;
+            .mirrorColor {
+              position: absolute;
+              left: 20px;
+              top: 7px;
+              display: inline-block;
+              background-color: #a5d4ff;
+              border: 3px solid #ffffff;
+              border-radius: 50%;
+              border: 1px solid;
+              width: 20px;
+              height: 20px;
+            }
+            img {
+              height: 260px;
+              max-width: 200px;
+            }
+          }
+          .text {
+            margin-top: 40px;
+            .title {
+              font-size: 28px;
+              margin-bottom: 15px;
+              text-align: center;
+            }
+            .semiText {
+              text-align: center;
+              padding-bottom: 19px;
+              border-bottom: 2px solid $LimeColor;
+            }
+            .buyBlock {
+              display: flex;
+              align-items: flex-start;
+              justify-content: space-between;
+              margin-top: 26px;
+              .cost {
+                display: flex;
+                gap: 7px;
+                .total {
+                  font-family: "Floreste Wavy";
+                  font-size: 28px;
+                }
+                .currency {
+                  font-size: 20px;
+                }
+              }
+              .buyBtn {
+                display: flex;
+                align-items: center;
+                gap: 11px;
+                p {
+                  font-size: 20px;
+                }
+                img {
+                  width: 24px;
+                  height: 24px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

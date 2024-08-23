@@ -1,6 +1,12 @@
 @import "styles/variables.scss";
 
+.subcategoryCollapsed {
+  height: 0;
+  opacity: 0;
+  transition: all 0.5s ease;
+}
 .subcategory {
+  transition: all 0.5s ease;
   margin-top: 0;
   margin-bottom: 90px;
   .filterBlock {
@@ -24,20 +30,25 @@
   .cards {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    grid-auto-rows: auto;
-    grid-row-gap: 150px;
+    justify-items: center;
+    gap: 105px;
     margin-bottom: 85px;
+    width: 100%;
     .card {
-      width: 274px;
+      width: 100%;
+      max-width: 100%;
       display: flex;
+      justify-content: center;
       flex-direction: column;
 
       .image {
         display: flex;
-
+        justify-content: center;
+        position: relative;
         .mirrorColor {
-          margin-top: 7px;
-          margin-right: 24px;
+          position: absolute;
+          left: 20px;
+          top: 7px;
           display: inline-block;
           background-color: #a5d4ff;
           border: 3px solid #ffffff;
