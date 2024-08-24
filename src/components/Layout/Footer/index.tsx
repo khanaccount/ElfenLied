@@ -6,7 +6,10 @@ import logoSvg from "assets/vectors/footer/logoSvg.svg";
 export const Footer: React.FC = () => {
   return (
     <div className={`container ${s.footer}`}>
-      <p className={s.year}>@2023</p>
+      <div className={s.phoneBlock}>
+        <p className={s.rightsPhone}>Все права защищены</p>
+        <p className={s.year}>@2023</p>
+      </div>
       <button className={s.footerBtn}>
         <div className={s.textBtn}>
           <img src={logoSvg} alt="arrowSvg" />

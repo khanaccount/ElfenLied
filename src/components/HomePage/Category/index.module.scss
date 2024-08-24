@@ -1,12 +1,14 @@
 @import "styles/variables.scss";
 
 .category {
-  margin-bottom: 200px;
   .categoryTitle {
     margin-bottom: 70px;
     text-align: center;
     text-transform: uppercase;
     font-size: 60px;
+  }
+  .categoryCardsSlider {
+    display: none;
   }
   .categoryCards {
     display: flex;
@@ -96,6 +98,85 @@
       img {
         width: 34px;
         height: 34px;
+      }
+    }
+  }
+}
+
+@media (max-width: 390px) {
+  .category {
+    .categoryTitle {
+      font-size: 23px;
+      text-align: start;
+      margin-bottom: 35px;
+    }
+    .categoryCards {
+      display: none;
+    }
+    .categoryCardsSlider {
+      display: block !important;
+      height: 302px;
+
+      .card {
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important
+        ;
+        background-image: url("assets/vectors/category/cardBgSmall.svg");
+        width: 239px;
+        height: 312px;
+        .lamp {
+          width: 111px;
+          height: 138px;
+        }
+        .title {
+          font-size: 15px;
+          line-height: 19px;
+          left: 0;
+          line-height: 19px;
+        }
+        .customMade {
+          bottom: 35px;
+          left: 24px;
+          transform: translate(-50%, -50%) rotate(266deg);
+          textPath {
+            font-size: 4px;
+            letter-spacing: 0.2em;
+          }
+        }
+        .quantityBg {
+          width: 46px;
+          height: 40px;
+          top: 108px;
+          right: -6px;
+          .quantityText {
+            .number {
+              font-weight: 400;
+              font-size: 25px;
+            }
+            .pieces {
+              font-size: 10px;
+            }
+          }
+        }
+        .arrowBtn,
+        .arrowBtnActive {
+          top: 256px;
+          right: 91px;
+          width: 56px;
+          height: 56px;
+          border: 1px solid $LimeColor;
+          svg {
+            width: 19px;
+            height: 19px;
+          }
+          &.arrowBtnActive {
+            svg {
+              width: 19px;
+              height: 19px;
+            }
+          }
+        }
       }
     }
   }

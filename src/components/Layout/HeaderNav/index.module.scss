@@ -73,6 +73,62 @@
           height: 21px;
         }
       }
+      .contactsPhone {
+        display: none;
+      }
+    }
+  }
+}
+
+@media (max-width: 390px) {
+  .headerNav {
+    margin-top: 27px;
+    .logoCatalog {
+      gap: 89px;
+      .logo {
+        width: 80px;
+
+        h5 {
+          font-family: "Le Murmure";
+          font-weight: 600;
+          font-size: 33px;
+        }
+      }
+
+      .catalog {
+        display: none;
+      }
+    }
+
+    .blogContacts {
+      display: none;
+    }
+
+    .searchUserAction {
+      gap: 0;
+      .search {
+        margin-right: 18px;
+        img {
+          margin: 0;
+          width: 25px;
+          height: 25px;
+        }
+        button {
+          display: none;
+        }
+      }
+
+      .userAction {
+        gap: 18px;
+        margin-right: 0;
+        img {
+          width: 22px;
+          height: 20px;
+        }
+        .contactsPhone {
+          display: flex;
+        }
+      }
     }
   }
 }

@@ -8,6 +8,9 @@
   .yaer {
     font-family: "Gilory-Light";
   }
+  .rightsPhone {
+    display: none;
+  }
   .footerBtn {
     margin: 0 auto;
     display: flex;
@@ -41,5 +44,51 @@
   }
   .rights {
     font-family: "Gilory-Light";
+  }
+}
+
+@media (max-width: 390px) {
+  .footer {
+    display: flex;
+    justify-content: space-between;
+    align-self: center;
+    margin-bottom: 55px;
+    .rightsPhone {
+      display: flex;
+      width: 98px;
+      line-height: 20px;
+      font-size: 13px;
+      margin-bottom: 16px;
+    }
+    .year {
+      font-size: 13px;
+      line-height: 20px;
+    }
+    .footerBtn {
+      height: 79px;
+      width: 149px;
+      border: 1px solid $LimeColor;
+      margin: 0;
+      .textBtn {
+        transform: rotate(13deg);
+        p {
+          font-family: "Circe";
+          font-size: 13px;
+          line-height: 27px;
+          font-weight: 700;
+          span {
+            font-weight: 300;
+          }
+        }
+        img {
+          width: 30px;
+          height: 30px;
+          margin-bottom: 1px;
+        }
+      }
+    }
+    .rights {
+      display: none;
+    }
   }
 }

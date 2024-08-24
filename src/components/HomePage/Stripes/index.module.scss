@@ -49,6 +49,35 @@
     }
   }
 }
+
+@media (max-width: 390px) {
+  .stripes {
+    height: 108px;
+    .firstStripe {
+      transform: rotate(-9deg);
+    }
+    .secondStripe {
+      transform: rotate(9deg);
+    }
+    .firstStripe,
+    .secondStripe {
+      height: 42px;
+
+      .textBlockLeft,
+      .textBlockRight {
+        gap: 10px;
+        p {
+          font-size: 25px;
+        }
+        img {
+          width: 15px;
+          height: 15px;
+        }
+      }
+    }
+  }
+}
+
 @keyframes scrollLeft {
   0% {
     transform: translateX(0);

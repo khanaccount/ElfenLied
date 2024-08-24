@@ -132,3 +132,103 @@
     }
   }
 }
+
+@media (max-width: 390px) {
+  .blog {
+    margin-bottom: 120px;
+    .top {
+      margin-bottom: 35px;
+      .left {
+        .paginationDot {
+          margin-right: 20px;
+
+          .dot {
+            width: 7px;
+            height: 7x;
+          }
+        }
+        .blogTitle {
+          font-size: 23px;
+        }
+      }
+      .paginationNumber {
+        gap: 20px;
+        p {
+          font-size: 25px;
+        }
+        span {
+          border-bottom: 1px solid $LavenderColor;
+          width: 36px;
+        }
+      }
+    }
+    .cards {
+      :global {
+        .slick-list {
+          height: 376px;
+        }
+      }
+      .card {
+        background-image: url("/src/assets/vectors/blog/cardBgSvgSmall.svg");
+        height: 243px;
+        padding: 15px;
+        img {
+          left: 194px;
+          top: 10px;
+          width: 156px;
+          height: 223px;
+        }
+
+        .cardInfoTop {
+          gap: 76px;
+          .number {
+            font-size: 13px;
+            opacity: 0.6;
+          }
+          .author {
+            width: 56px;
+            text-align: end;
+            font-size: 13px;
+            line-height: 20px;
+          }
+        }
+        .articleTitle {
+          margin-bottom: 44px;
+          width: 115px;
+          font-size: 15px;
+          line-height: 19px;
+        }
+        .publicationDate {
+          width: 82px;
+          font-size: 12px;
+          line-height: 15px;
+        }
+        .readingTime {
+          position: absolute;
+          flex-direction: column;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          text-align: center;
+          top: 210px;
+          left: 75px;
+          width: 70px;
+          height: 65px;
+          border: 1px solid $LimeColor;
+          padding: 30px 20px;
+          .readingBlock {
+            transform: rotate(-15deg);
+            .innerBlockTime {
+              font-family: "Floreste Wavy";
+              font-size: 25px;
+              height: 21px;
+            }
+            .innerBlockMin {
+              font-size: 12px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

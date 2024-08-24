@@ -6,6 +6,7 @@ import searchSvg from "assets/vectors/headerNav/searchSvg.svg";
 import heartSvg from "assets/vectors/headerNav/heartSvg.svg";
 import userSvg from "assets/vectors/headerNav/userSvg.svg";
 import basketSvg from "assets/vectors/headerNav/basketSvg.svg";
+import phoneSvg from "assets/vectors/headerNav/phone.svg";
 
 import { BasketModal } from "components/Modals/BasketModal";
 import { AuthModal } from "components/Modals/AuthModal";
@@ -73,6 +74,9 @@ export const HeaderNav: React.FC = () => {
           </button>
           <button onClick={() => handleModalToggle("basket")}>
             <img className={s.basketSvg} src={basketSvg} alt="basketSvg" />
+          </button>
+          <button className={s.contactsPhone} onClick={() => handleModalToggle("contacts")}>
+            <img src={phoneSvg} alt="phoneSvg" />
           </button>
         </div>
       </div>

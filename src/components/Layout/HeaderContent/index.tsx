@@ -1,4 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import s from "./index.module.scss";
 import { CardModal } from "components/Modals/CardModal";
 import basketSvg from "assets/vectors/headerContent/basketSvg.svg";
@@ -66,6 +69,9 @@ const cardData: CardData[] = [
 export const HeaderContent: React.FC = () => {
   const [selectedCardId, setSelectedCardId] = useState<number | null>(null);
   const [modalOpen, setModalOpen] = useState<boolean>(false);
+  const [currentSlide, setCurrentSlide] = useState<number>(0);
+
+  const sliderRef = useRef<Slider>(null);
 
   const selectedCard = cardData.find((card) => card.id === selectedCardId);
 
@@ -81,6 +87,18 @@ export const HeaderContent: React.FC = () => {
   const handleCloseModal = () => {
     setModalOpen(false);
     setSelectedCardId(null);
+  };
+
+  const sliderSettings = {
+    dots: false,
+    infinite: false,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    vertical: true,
+    verticalSwiping: true,
+    arrows: false,
+    afterChange: (current: number) => setCurrentSlide(current),
   };
 
   return (
@@ -144,6 +162,38 @@ export const HeaderContent: React.FC = () => {
             </div>
           </div>
         ))}
+      </div>
+      <div className={s.slider}>
+        <Slider {...sliderSettings} ref={sliderRef}>
+          {cardData.map((card) => (
+            <div key={card.id} className={s.card}>
+              <div className={s.imgBlock}>
+                <img className={s.bgImg} src={card.imgSrc} alt={card.titleBg} />
+                <p className={s.bgText}>{card.titleBg}</p>
+                <p className={s.dayProduct}>товар дня</p>
+              </div>
+              <button className={s.buyBtn}>
+                <span className={s.innerCircle}></span>
+                <span className={s.externalCircle}></span>
+                <img src={basketSvg} alt="Basket" />
+                <p>Купить</p>
+              </button>
+              <div className={s.productInfo}>
+                <h5>{card.name}</h5>
+                <p>{card.description}</p>
+                <div className={s.cost}>
+                  <p className={s.total}>{card.price.toLocaleString()}</p>
+                  <p className={s.currency}>{card.currency}</p>
+                </div>
+              </div>
+              <div className={s.pagination}>
+                <span>{String(currentSlide + 1).padStart(2, "0")}</span>
+                <span className={s.line}></span>
+                <span>{String(cardData.length).padStart(2, "0")}</span>
+              </div>
+            </div>
+          ))}
+        </Slider>
       </div>
       {modalOpen && selectedCard && <CardModal card={selectedCard} onClose={handleCloseModal} />}
     </div>

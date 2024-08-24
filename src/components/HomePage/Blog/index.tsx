@@ -112,8 +112,8 @@ export const Blog: React.FC = () => {
     dots: false,
     infinite: false,
     speed: 500,
-    slidesToShow: 3,
-    slidesToScroll: 3,
+    slidesToShow: window.innerWidth <= 390 ? 1 : 3,
+    slidesToScroll: window.innerWidth <= 390 ? 1 : 3,
     arrows: false,
     afterChange: (current: number) => setCurrentSlide(current),
   };
