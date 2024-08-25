@@ -17,7 +17,6 @@ export const FavoriteModal: React.FC = () => {
     setIsModalOpen(false);
   };
 
-  // Dummy data for demo purposes, ideally, you'd get this data from the backend or state
   const allItems = [
     {
       id: 1,
@@ -53,7 +52,6 @@ export const FavoriteModal: React.FC = () => {
     },
   ];
 
-  // Filter to get only favorite items
   const items = allItems.filter((item) => favoriteItems.some((fav) => fav.id === item.id));
 
   return (

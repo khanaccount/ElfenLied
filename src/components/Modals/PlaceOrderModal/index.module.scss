@@ -109,6 +109,7 @@
       display: flex;
       flex-direction: column;
       max-height: 700px;
+      min-width: 647px;
       overflow-y: auto;
       padding: 48px;
       border-radius: 30px;
@@ -116,9 +117,16 @@
       background-color: rgba($modalBgColor, 0.18);
       backdrop-filter: blur(100px);
       gap: 40px;
+      .yourOrder {
+        display: none;
+      }
+      .placeOrderBtnMobile {
+        display: none;
+      }
       .card {
         gap: 45px;
         display: flex;
+
         .productImg {
           height: 142px;
           min-width: 88px;
@@ -230,6 +238,230 @@
           .orderCurrency {
             transform: rotate(6deg);
             text-transform: uppercase;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 390px) {
+  .placeOrderModal {
+    .thankYouContent {
+      padding: 15px;
+      .thx {
+        margin-top: 130px;
+        display: flex;
+        justify-content: center;
+        h2 {
+          width: 210px;
+          text-transform: uppercase;
+          font-size: 15px;
+          letter-spacing: 0.1em;
+          &:not(:first-child) {
+            display: none;
+          }
+        }
+      }
+      .bgText {
+        display: flex;
+        gap: 84px;
+        left: 50%;
+        top: 27%;
+        transform: translate(-50%, -50%);
+        position: absolute;
+        z-index: 4;
+        h1 {
+          width: 344px;
+          opacity: 0.2;
+          font-weight: 400;
+          font-size: 110px;
+        }
+      }
+      .bgImg {
+        z-index: 6;
+        display: flex;
+        align-items: flex-end;
+        position: absolute;
+        left: 30%;
+        top: 22%;
+        transform: translate(-50%, -50%);
+
+        .imgBig {
+          width: 200px;
+          height: 300px;
+          top: 50px;
+          left: 0;
+          position: absolute;
+          transform: rotate(-8deg);
+        }
+        .imgSmall {
+          display: none;
+        }
+        .imgSmallMobile01,
+        .imgSmallMobile02,
+        .imgSmallMobile03 {
+          position: absolute;
+          width: 200px;
+          height: 300px;
+        }
+        .imgSmallMobile01 {
+          left: 120px;
+          bottom: -450px;
+        }
+        .imgSmallMobile02 {
+          left: 0;
+          bottom: -600px;
+        }
+        .imgSmallMobile03 {
+          top: 110px;
+          left: -130px;
+        }
+      }
+    }
+
+    .innerBlock {
+      padding: 15px;
+
+      .top {
+        flex-direction: column;
+      }
+      .form {
+        margin: 0;
+        width: 100%;
+        h4 {
+          margin: 50px 0;
+          font-size: 15px;
+          letter-spacing: 0.1em;
+        }
+        .formGroup {
+          &:not(:last-child) {
+            margin-bottom: 40px;
+          }
+          input {
+            padding-bottom: 20px;
+            border-bottom: 1px solid $LimeColor;
+          }
+
+          input::placeholder {
+            font-size: 15px;
+          }
+        }
+        .placeOrderBtn {
+          display: none;
+        }
+      }
+      .cards {
+        max-height: 460px;
+        overflow-y: auto;
+        padding: 0;
+        border-radius: 0;
+        overflow-x: hidden;
+        background-color: transparent;
+        transition: max-height 0.3s ease-in-out;
+        .collapsed {
+          display: none;
+          transition: max-height 0.3s ease-in-out;
+        }
+        .card {
+          .productImg {
+            height: 120px;
+            min-width: 70px;
+            width: 75px;
+            max-width: 85px;
+          }
+          .options {
+            width: 100%;
+            .top {
+              display: flex;
+              flex-direction: row;
+              padding-bottom: 15px;
+              border-bottom: 1px solid $LimeColor;
+
+              .productInfo {
+                .productName {
+                  gap: 10px;
+
+                  .mirrorColor {
+                    border: 3px solid #ffffff;
+                    width: 16px;
+                    height: 16px;
+                  }
+                  .title {
+                    text-transform: uppercase;
+                    font-size: 15px;
+                  }
+                }
+                .description {
+                  margin-top: 13px;
+                  font-size: 13px;
+                }
+              }
+              .deleteBtn {
+                width: 29px;
+                height: 29px;
+              }
+            }
+            .bottom {
+              .cost {
+                display: flex;
+                gap: 7px;
+                .total {
+                  font-size: 25px;
+                  letter-spacing: 0.04em;
+                }
+                .currency {
+                  font-size: 15px;
+                }
+              }
+              span {
+                font-size: 16px;
+              }
+            }
+          }
+        }
+        .total {
+          p {
+            display: none;
+            text-transform: uppercase;
+          }
+          .placeOrderBtn {
+            display: none;
+
+            .orderTotal {
+              display: none;
+            }
+          }
+        }
+        .placeOrderBtnMobile {
+          padding: 40px 50px;
+          width: 185px;
+          height: 110px;
+          border-radius: 50%;
+          display: inline-block;
+          margin-top: 10px;
+          background: rgba(235, 227, 255, 0.19);
+          border: 1px solid $LimeColor;
+          transform: rotate(-15deg);
+          p {
+            transform: rotate(15deg);
+          }
+        }
+        .totalOrder {
+          display: none;
+        }
+        .yourOrder {
+          display: flex;
+          gap: 15px;
+          align-items: center;
+          .arrowCollapsed {
+            transform: rotate(180deg);
+            transition: transform 0.3s ease;
+            img {
+              width: 20px;
+              height: 20px;
+              transform: rotate(-1deg);
+            }
           }
         }
       }

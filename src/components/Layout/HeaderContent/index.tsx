@@ -172,7 +172,13 @@ export const HeaderContent: React.FC = () => {
                 <p className={s.bgText}>{card.titleBg}</p>
                 <p className={s.dayProduct}>товар дня</p>
               </div>
-              <button className={s.buyBtn}>
+              <button
+                className={s.buyBtn}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  handleBuyClick(card);
+                }}
+              >
                 <span className={s.innerCircle}></span>
                 <span className={s.externalCircle}></span>
                 <img src={basketSvg} alt="Basket" />

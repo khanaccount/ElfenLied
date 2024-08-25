@@ -49,6 +49,23 @@ export const BasketModal: React.FC = () => {
       img: img01,
       quantity: 1,
     },
+
+    {
+      id: 5,
+      name: "coppelia",
+      description: "Лампа настольная",
+      price: 150000,
+      img: img03,
+      quantity: 1,
+    },
+    {
+      id: 6,
+      name: "coppelia",
+      description: "Лампа настольная",
+      price: 150000,
+      img: img01,
+      quantity: 1,
+    },
   ]);
 
   const calculateTotal = () => items.reduce((total, item) => total + item.price * item.quantity, 0);

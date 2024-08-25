@@ -103,6 +103,9 @@
             margin-left: 15px;
             text-transform: uppercase;
           }
+          .nameColorMobile {
+            display: none;
+          }
         }
         .characteristics {
           display: flex;
@@ -145,12 +148,18 @@
       display: flex;
       justify-content: space-between;
       margin-top: 385px;
+      .titleMobile {
+        display: none;
+      }
       .functional {
         max-width: 349px;
         font-size: 20px;
         line-height: 154%;
       }
       .productInfo {
+        .buyBtnMobile {
+          display: none;
+        }
         .title {
           font-family: "Floreste Wavy";
           font-weight: 400;
@@ -209,6 +218,190 @@
         img,
         p {
           margin-bottom: 20px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 390px) {
+  .cardModal {
+    .innerBlock {
+      padding: 20px;
+      height: 100%;
+
+      .top {
+        justify-content: flex-end;
+        .article {
+          top: 100px;
+          left: 15px;
+          position: absolute;
+        }
+        .right {
+          right: 0;
+          .favoriteBtn,
+          .favoriteBtnActive {
+            margin-top: 45px;
+            width: 50px;
+            height: 50px;
+            svg {
+              width: 18px;
+              height: 16px;
+            }
+          }
+          .favoriteBtn {
+            border: 1px solid $LimeColor;
+          }
+          .favoriteBtnActive {
+            border: 1px solid $PinkColor;
+          }
+          .closeModal {
+            gap: 15px;
+            font-size: 12px;
+            img {
+              width: 25px;
+              height: 25px;
+            }
+          }
+        }
+      }
+      .middle {
+        display: flex;
+        .colorHeight {
+          position: absolute;
+          top: 150px;
+          left: 0;
+          gap: 200px;
+          flex-direction: row-reverse;
+          align-items: center;
+          .colorBlock {
+            flex-direction: column;
+            .option {
+              display: none;
+            }
+            span {
+              margin-left: 50px;
+              margin-bottom: 10px;
+              width: 20px;
+              height: 20px;
+              border: 3px solid white;
+            }
+            .nameColor {
+              display: none;
+            }
+            .nameColorMobile {
+              display: flex;
+              font-size: 12px;
+              text-transform: uppercase;
+              letter-spacing: 1px;
+            }
+          }
+          .characteristics {
+            display: flex;
+            flex-direction: column;
+            p {
+              font-size: 12px;
+              &:not(:last-child) {
+                margin-bottom: 15px;
+              }
+            }
+          }
+        }
+        .bg {
+          position: absolute;
+          left: 50%;
+          top: 50px;
+          transform: translate(-50%, -50%);
+          h1 {
+            width: 361px;
+            left: -100px;
+            font-size: 71px;
+          }
+          img {
+            position: relative;
+            z-index: 2;
+            min-width: 162px;
+            min-height: 317px;
+            width: 162px;
+            height: 317px;
+          }
+        }
+      }
+      .bottom {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        flex-direction: column;
+        margin-top: 280px;
+        .titleMobile {
+          display: flex;
+          margin-bottom: 17px;
+          font-size: 23px;
+          text-transform: uppercase;
+        }
+        .functional {
+          max-width: 249px;
+          font-size: 13px;
+          line-height: 154%;
+        }
+        .productInfo {
+          display: flex;
+          justify-content: space-between;
+          width: 100%;
+          .buyBtnMobile {
+            margin-right: 50px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+
+            .innerCircle,
+            .externalCircle {
+              position: absolute;
+              top: 0;
+              left: 0;
+              border: 1px solid $LimeColor;
+              width: 207px;
+              border-radius: 50%;
+              height: 90px;
+              transform: rotate(-13deg);
+            }
+            .innerCircle {
+              background: rgba(255, 255, 255, 0.19);
+            }
+            .externalCircle {
+              transform: rotate(359deg);
+            }
+            img {
+              width: 24px;
+              height: 24px;
+              margin-right: 7px;
+              margin-left: 65px;
+            }
+            img,
+            p {
+              margin-bottom: 10px;
+            }
+          }
+          .title {
+            display: none;
+            font-weight: 500;
+            font-size: 23px;
+          }
+          .cost {
+            margin-top: 61px;
+            gap: 7px;
+            .total {
+              font-size: 30px;
+              letter-spacing: 0.04em;
+            }
+            .currency {
+              font-size: 20px;
+            }
+          }
+        }
+        .buyBtn {
+          display: none;
         }
       }
     }

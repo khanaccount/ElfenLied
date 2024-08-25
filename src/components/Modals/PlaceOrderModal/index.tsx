@@ -9,6 +9,7 @@ import img01 from "assets/img/basketModal/01.png";
 import img02 from "assets/img/basketModal/02.png";
 import img03 from "assets/img/basketModal/03.png";
 import trashSvg from "assets/vectors/basketModal/trash.svg";
+import arrowSvg from "assets/vectors/placeOrderModal/arrowSvg.svg";
 
 import bg01 from "assets/img/placeOrderModal/01.png";
 import bg02 from "assets/img/placeOrderModal/02.png";
@@ -43,6 +44,12 @@ interface Item {
 }
 
 export const PlaceOrderModal: React.FC = () => {
+  const [isOrderCollapsed, setIsOrderCollapsed] = useState(false);
+
+  const toggleOrderCollapse = () => {
+    setIsOrderCollapsed(!isOrderCollapsed);
+  };
+
   const {
     register,
     handleSubmit,
@@ -103,8 +110,7 @@ export const PlaceOrderModal: React.FC = () => {
     return items.reduce((total, item) => total + item.price * item.quantity, 0);
   };
 
-  const onSubmit: SubmitHandler<IOrderInput> = (data) => {
-    console.log("Order Data:", data);
+  const onSubmit: SubmitHandler<IOrderInput> = () => {
     setOrderPlaced(true);
   };
 
@@ -124,11 +130,11 @@ export const PlaceOrderModal: React.FC = () => {
               <h1>thank you</h1>
             </div>
             <div className={s.bgImg}>
-              <img className={s.imgSmall} src={bg01} alt="bg01" />
+              <img className={s.imgSmallMobile01} src={bg01} alt="bg01" />
               <img className={s.imgSmall} src={bg02} alt="bg02" />
               <img className={s.imgBig} src={bg05} alt="bg055" />
-              <img className={s.imgSmall} src={bg04} alt="bg044" />
-              <img className={s.imgSmall} src={bg03} alt="bg033" />
+              <img className={s.imgSmallMobile02} src={bg04} alt="bg044" />
+              <img className={s.imgSmallMobile03} src={bg03} alt="bg033" />
             </div>
           </div>
         </div>
@@ -180,8 +186,16 @@ export const PlaceOrderModal: React.FC = () => {
 
           <div className={s.cards}>
             <h5 className={s.totalOrder}>Состав заказа</h5>
+            <div className={s.yourOrder} onClick={toggleOrderCollapse}>
+              <h5>ваш заказ</h5>
+              <img
+                src={arrowSvg}
+                alt="arrowSvg"
+                className={isOrderCollapsed ? s.arrowCollapsed : ""}
+              />
+            </div>
             {items.map((item) => (
-              <div key={item.id} className={s.card}>
+              <div key={item.id} className={isOrderCollapsed ? s.collapsed : s.card}>
                 <img className={s.productImg} src={item.img} alt={item.name} />
                 <div className={s.options}>
                   <div className={s.top}>
@@ -206,6 +220,12 @@ export const PlaceOrderModal: React.FC = () => {
                 </div>
               </div>
             ))}
+
+            <div className={s.placeOrderBtnMobile}>
+              <button onClick={handleSubmit(onSubmit)} type="submit">
+                Заказать
+              </button>
+            </div>
             <div className={s.total}>
               <p>Итого:</p>
               <div className={s.placeOrderBtn}>

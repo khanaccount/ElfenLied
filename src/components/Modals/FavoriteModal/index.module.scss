@@ -173,3 +173,102 @@
     }
   }
 }
+
+@media (max-width: 390px) {
+  .favoriteModal {
+    transition: all 0.5s ease;
+    position: fixed;
+    z-index: 999;
+    background: rgba($PurpleColor, 0.25);
+    backdrop-filter: blur(100px);
+
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+  }
+  .innerBlock {
+    .info {
+      align-items: center;
+      h4 {
+        text-transform: uppercase;
+        font-size: 15px;
+      }
+      .closeModal {
+        img {
+          width: 22px;
+          height: 22px;
+        }
+      }
+    }
+    .cards {
+      .card {
+        .productImg {
+          height: 120px;
+          min-width: 75px;
+          width: 85px;
+          max-width: 85px;
+        }
+        .options {
+          width: 400px;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          .top {
+            padding-bottom: 15px;
+            border-bottom: 1px solid $LimeColor;
+            align-items: center;
+            .productInfo {
+              .productName {
+                gap: 10px;
+                .mirrorColor {
+                  border: 3px solid #ffffff;
+                  width: 16px;
+                  height: 16px;
+                }
+                .title {
+                  text-transform: uppercase;
+                  font-size: 15px;
+                }
+              }
+              .description {
+                margin-top: 13px;
+                font-size: 13px;
+              }
+            }
+            .favoriteBtn,
+            .favoriteBtnActive {
+              width: 50px;
+              height: 50px;
+              border-radius: 50%;
+              svg {
+                width: 22px;
+                height: 20px;
+              }
+            }
+
+            .favoriteBtnActive {
+              border: 1px solid $PinkColor;
+            }
+          }
+          .bottom {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            .cost {
+              gap: 5px;
+              .total {
+                font-family: "Floreste Wavy";
+                font-weight: 400;
+                font-size: 25px;
+              }
+              .currency {
+                font-size: 13px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

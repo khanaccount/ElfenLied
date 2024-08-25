@@ -67,6 +67,7 @@ export const CardModal: React.FC<CardModalProps> = ({ card, onClose }) => {
               <p className={s.option}>Цвет:</p>
               <span></span>
               <p className={s.nameColor}>{card.colorText}</p>
+              <p className={s.nameColorMobile}>Лаванда</p>
             </div>
             <div className={s.characteristics}>
               <p>Высота:</p>
@@ -79,6 +80,7 @@ export const CardModal: React.FC<CardModalProps> = ({ card, onClose }) => {
           </div>
         </div>
         <div className={s.bottom}>
+          <h3 className={s.titleMobile}>{card.name}</h3>
           <p className={s.functional}>{card.description}</p>
           <div className={s.productInfo}>
             <h3 className={s.title}>{card.name}</h3>
@@ -86,6 +88,12 @@ export const CardModal: React.FC<CardModalProps> = ({ card, onClose }) => {
               <p className={s.total}>{card.price.toLocaleString()}</p>
               <p className={s.currency}>{card.currency}</p>
             </div>
+            <button className={s.buyBtnMobile}>
+              <span className={s.innerCircle}></span>
+              <span className={s.externalCircle}></span>
+              <img src={basketSvg} alt="Basket" />
+              <p>Купить</p>
+            </button>
           </div>
           <button className={s.buyBtn}>
             <span className={s.innerCircle}></span>

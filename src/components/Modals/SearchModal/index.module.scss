@@ -147,3 +147,120 @@
     }
   }
 }
+
+@media (max-width: 390px) {
+  .searchModal {
+    .innerBlock {
+      margin-top: 23px;
+
+      .searchContainer {
+        display: flex;
+        height: 58px;
+        align-items: center;
+        padding: 4px;
+        border-radius: 10000px;
+        .searchBtn {
+          width: 65px;
+          height: 45px;
+          background-color: $PurpleColor;
+          img {
+            width: 20px;
+            height: 20px;
+          }
+        }
+        .eraseText {
+          margin-right: 20px;
+        }
+      }
+      .searchItems {
+        .noResult {
+          position: absolute;
+          top: 40%;
+          left: 5%;
+          img {
+            width: 350px;
+            height: 230px;
+          }
+        }
+        h4 {
+          margin: 45px 0;
+          font-size: 15px;
+          text-transform: uppercase;
+        }
+        .cards {
+          display: flex;
+          flex-direction: column;
+
+          gap: 105px;
+          width: 100%;
+          .card {
+            width: 100%;
+            max-width: 100%;
+            display: flex;
+            justify-content: space-between;
+            flex-direction: row;
+            align-items: center;
+
+            .image {
+              .mirrorColor {
+                left: 105px;
+                top: -3px;
+                border: 2px solid #ffffff;
+                width: 16px;
+                height: 16px;
+              }
+              img {
+                height: 120px;
+                max-width: 94px;
+              }
+            }
+            .text {
+              margin-top: 0;
+              width: 255px;
+              .title {
+                font-size: 15px;
+                margin-bottom: 15px;
+                margin-left: 25px;
+                text-align: center;
+                text-transform: uppercase;
+                text-align: start;
+              }
+              .semiText {
+                text-align: center;
+                padding-bottom: 19px;
+                border-bottom: 2px solid $LimeColor;
+                font-size: 13px;
+                line-height: 20px;
+                text-align: start;
+              }
+              .buyBlock {
+                margin-top: 25px;
+                .cost {
+                  gap: 5px;
+                  .total {
+                    font-size: 25px;
+                  }
+                  .currency {
+                    font-size: 13px;
+                  }
+                }
+                .buyBtn {
+                  display: flex;
+                  align-items: center;
+                  gap: 11px;
+                  p {
+                    font-size: 16px;
+                  }
+                  img {
+                    width: 20px;
+                    height: 20px;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
