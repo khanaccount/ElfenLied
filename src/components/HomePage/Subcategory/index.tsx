@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { AppContext } from "../../../contexts/AppContext";
 import s from "./index.module.scss";
 import { Filters } from "./Filters";
@@ -351,11 +351,379 @@ const categorizedItems: { [key: number]: Item[] } = {
   ],
 };
 
+const authenticatedItems: { [key: number]: Item[] } = {
+  1: [
+    {
+      id: 1,
+      title: "Kristin",
+      description: "Зеркало напольное",
+      price: 100,
+      imageSrc: mirror01,
+      color: "#F0B3EA",
+    },
+    {
+      id: 2,
+      title: "Sophia",
+      description: "Зеркало напольное",
+      price: 100,
+      imageSrc: mirror02,
+      color: "#8ECDFA",
+    },
+    {
+      id: 3,
+      title: "Vivian",
+      description: "Зеркало напольное",
+      price: 100,
+      imageSrc: mirror03,
+      color: "#FBE4CA",
+    },
+    {
+      id: 4,
+      title: "Ophelia",
+      description: "Зеркало напольное",
+      price: 100,
+      imageSrc: mirror04,
+      color: "#F0B5FA",
+    },
+    {
+      id: 5,
+      title: "Aurora",
+      description: "Зеркало напольное",
+      price: 100,
+      imageSrc: mirror05,
+      color: "#F0B3EA",
+    },
+    {
+      id: 6,
+      title: "Nova",
+      description: "Зеркало напольное",
+      price: 100,
+      imageSrc: mirror01,
+      color: "#F0B3EA",
+    },
+    {
+      id: 7,
+      title: "Elara",
+      description: "Зеркало напольное",
+      price: 100,
+      imageSrc: mirror02,
+      color: "#8ECDFA",
+    },
+    {
+      id: 8,
+      title: "Diana",
+      description: "Зеркало напольное",
+      price: 100,
+      imageSrc: mirror03,
+      color: "#FBE4CA",
+    },
+    {
+      id: 9,
+      title: "Athena",
+      description: "Зеркало напольное",
+      price: 100,
+      imageSrc: mirror04,
+      color: "#F0B5FA",
+    },
+    {
+      id: 10,
+      title: "Selene",
+      description: "Зеркало напольное",
+      price: 100,
+      imageSrc: mirror05,
+      color: "#F0B3EA",
+    },
+  ],
+  2: [
+    {
+      id: 1,
+      title: "Luna",
+      description: "Торшер",
+      price: 100,
+      imageSrc: mirror01,
+      color: "#F0B3EA",
+    },
+    {
+      id: 2,
+      title: "Stella",
+      description: "Лампа настольная",
+      price: 100,
+      imageSrc: mirror02,
+      color: "#8ECDFA",
+    },
+    {
+      id: 3,
+      title: "Aurora",
+      description: "Торшер",
+      price: 100,
+      imageSrc: mirror03,
+      color: "#FBE4CA",
+    },
+    {
+      id: 4,
+      title: "Orion",
+      description: "Лампа настольная",
+      price: 100,
+      imageSrc: mirror04,
+      color: "#F0B5FA",
+    },
+    {
+      id: 5,
+      title: "Vega",
+      description: "Торшер",
+      price: 100,
+      imageSrc: mirror05,
+      color: "#F0B3EA",
+    },
+    {
+      id: 6,
+      title: "Nova",
+      description: "Лампа настольная",
+      price: 100,
+      imageSrc: mirror01,
+      color: "#F0B3EA",
+    },
+    {
+      id: 7,
+      title: "Cassiopeia",
+      description: "Торшер",
+      price: 100,
+      imageSrc: mirror02,
+      color: "#8ECDFA",
+    },
+    {
+      id: 8,
+      title: "Aurelia",
+      description: "Лампа настольная",
+      price: 100,
+      imageSrc: mirror03,
+      color: "#FBE4CA",
+    },
+    {
+      id: 9,
+      title: "Phoebe",
+      description: "Торшер",
+      price: 100,
+      imageSrc: mirror04,
+      color: "#F0B5FA",
+    },
+    {
+      id: 10,
+      title: "Rhea",
+      description: "Лампа настольная",
+      price: 100,
+      imageSrc: mirror05,
+      color: "#F0B3EA",
+    },
+  ],
+  3: [
+    {
+      id: 1,
+      title: "Oslo",
+      description: "Кресло",
+      price: 100,
+      imageSrc: mirror01,
+      color: "#F0B3EA",
+    },
+    {
+      id: 2,
+      title: "Stockholm",
+      description: "Стул",
+      price: 100,
+      imageSrc: mirror02,
+      color: "#8ECDFA",
+    },
+    {
+      id: 3,
+      title: "Copenhagen",
+      description: "Кресло",
+      price: 100,
+      imageSrc: mirror03,
+      color: "#FBE4CA",
+    },
+    {
+      id: 4,
+      title: "Helsinki",
+      description: "Стул",
+      price: 100,
+      imageSrc: mirror04,
+      color: "#F0B5FA",
+    },
+    {
+      id: 5,
+      title: "Reykjavik",
+      description: "Кресло",
+      price: 100,
+      imageSrc: mirror05,
+      color: "#F0B3EA",
+    },
+    {
+      id: 6,
+      title: "Gothenburg",
+      description: "Стул",
+      price: 100,
+      imageSrc: mirror01,
+      color: "#F0B3EA",
+    },
+    {
+      id: 7,
+      title: "Bergen",
+      description: "Кресло",
+      price: 100,
+      imageSrc: mirror02,
+      color: "#8ECDFA",
+    },
+    {
+      id: 8,
+      title: "Trondheim",
+      description: "Стул",
+      price: 100,
+      imageSrc: mirror03,
+      color: "#FBE4CA",
+    },
+    {
+      id: 9,
+      title: "Oslo",
+      description: "Кресло",
+      price: 100,
+      imageSrc: mirror04,
+      color: "#F0B5FA",
+    },
+    {
+      id: 10,
+      title: "Stockholm",
+      description: "Стул",
+      price: 100,
+      imageSrc: mirror05,
+      color: "#F0B3EA",
+    },
+  ],
+  4: [
+    {
+      id: 1,
+      title: "Atlas",
+      description: "Стол",
+      price: 100,
+      imageSrc: mirror01,
+      color: "#F0B3EA",
+    },
+    {
+      id: 2,
+      title: "Hermes",
+      description: "Тумба",
+      price: 100,
+      imageSrc: mirror02,
+      color: "#8ECDFA",
+    },
+    {
+      id: 3,
+      title: "Zeus",
+      description: "Стол",
+      price: 100,
+      imageSrc: mirror03,
+      color: "#FBE4CA",
+    },
+    {
+      id: 4,
+      title: "Apollo",
+      description: "Тумба",
+      price: 100,
+      imageSrc: mirror04,
+      color: "#F0B5FA",
+    },
+    {
+      id: 5,
+      title: "Ares",
+      description: "Стол",
+      price: 100,
+      imageSrc: mirror05,
+      color: "#F0B3EA",
+    },
+    {
+      id: 6,
+      title: "Hephaestus",
+      description: "Тумба",
+      price: 100,
+      imageSrc: mirror01,
+      color: "#F0B3EA",
+    },
+    {
+      id: 7,
+      title: "Dionysus",
+      description: "Стол",
+      price: 100,
+      imageSrc: mirror02,
+      color: "#8ECDFA",
+    },
+    {
+      id: 8,
+      title: "Hera",
+      description: "Тумба",
+      price: 100,
+      imageSrc: mirror03,
+      color: "#FBE4CA",
+    },
+    {
+      id: 9,
+      title: "Poseidon",
+      description: "Стол",
+      price: 100,
+      imageSrc: mirror04,
+      color: "#F0B5FA",
+    },
+    {
+      id: 10,
+      title: "Hades",
+      description: "Тумба",
+      price: 100,
+      imageSrc: mirror05,
+      color: "#F0B3EA",
+    },
+  ],
+};
+
 export const Subcategory: React.FC = () => {
   const [visibleItems, setVisibleItems] = useState(5);
   const { selectedCategoryId } = useContext(AppContext);
+  const [items, setItems] = useState<Item[]>([]);
 
-  const items = selectedCategoryId !== null ? categorizedItems[selectedCategoryId] || [] : [];
+  const checkAuthentication = () => {
+    const authStatus = localStorage.getItem("isAuthenticated");
+    return authStatus === "true";
+  };
+
+  useEffect(() => {
+    const isUserAuthenticated = checkAuthentication();
+
+    const currentItems =
+      isUserAuthenticated && selectedCategoryId !== null
+        ? authenticatedItems[selectedCategoryId] || []
+        : selectedCategoryId !== null
+        ? categorizedItems[selectedCategoryId] || []
+        : [];
+
+    setItems(currentItems);
+  }, [selectedCategoryId]);
+
+  useEffect(() => {
+    const handleStorageChange = () => {
+      const isUserAuthenticated = checkAuthentication();
+      const currentItems =
+        isUserAuthenticated && selectedCategoryId !== null
+          ? authenticatedItems[selectedCategoryId] || []
+          : selectedCategoryId !== null
+          ? categorizedItems[selectedCategoryId] || []
+          : [];
+
+      setItems(currentItems);
+    };
+
+    window.addEventListener("storage", handleStorageChange);
+
+    return () => {
+      window.removeEventListener("storage", handleStorageChange);
+    };
+  }, [selectedCategoryId]);
 
   const loadMoreItems = () => {
     setVisibleItems((prevVisibleItems) => prevVisibleItems + 5);

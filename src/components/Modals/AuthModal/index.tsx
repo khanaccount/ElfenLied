@@ -3,11 +3,15 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import s from "./index.module.scss";
-
 import cross from "assets/vectors/cardModal/crossSvg.svg";
 import arrow from "assets/vectors/authModal/arrowSvg.svg";
 
-//вход
+// Фейковые данные для входа
+const fakeUserData = {
+  email: "test@example.com",
+  password: "password123",
+};
+
 const loginSchema = yup
   .object({
     email: yup.string().email("Некорректный e-mail").required("E-mail обязателен"),
@@ -18,7 +22,6 @@ const loginSchema = yup
   })
   .required();
 
-//регистрация
 const registerSchema = yup
   .object({
     email: yup.string().email("Некорректный e-mail").required("E-mail обязателен"),
@@ -48,13 +51,8 @@ export const AuthModal: React.FC = () => {
   const [isLogin, setIsLogin] = useState(true);
   const [isModalOpen, setIsModalOpen] = useState(true);
 
-  console.log(isModalOpen);
+  const closeModal = () => setIsModalOpen(false);
 
-  const closeModal = () => {
-    setIsModalOpen(false);
-  };
-
-  //вход
   const {
     register: loginRegister,
     handleSubmit: handleLoginSubmit,
@@ -63,7 +61,6 @@ export const AuthModal: React.FC = () => {
     resolver: yupResolver(loginSchema),
   });
 
-  //регистрация
   const {
     register: registerRegister,
     handleSubmit: handleRegisterSubmit,
@@ -72,12 +69,16 @@ export const AuthModal: React.FC = () => {
     resolver: yupResolver(registerSchema),
   });
 
-  //вход
   const onLoginSubmit: SubmitHandler<ILoginInput> = (data) => {
-    console.log("Login Data:", data);
+    if (data.email === fakeUserData.email && data.password === fakeUserData.password) {
+      alert("Успешный вход, цены изменились!");
+      localStorage.setItem("isAuthenticated", "true");
+      closeModal();
+    } else {
+      alert("Неправильный e-mail или пароль");
+    }
   };
 
-  //регистрация
   const onRegisterSubmit: SubmitHandler<IRegisterInput> = (data) => {
     console.log("Register Data:", data);
   };
@@ -101,9 +102,9 @@ export const AuthModal: React.FC = () => {
                 className={loginErrors.email ? s.errorInput : ""}
                 placeholder="E-mail"
               />
+              test@example.com
               {loginErrors.email && <p className={s.errorText}>{loginErrors.email?.message}</p>}
             </div>
-
             <div className={s.formGroup}>
               <input
                 id="password"
@@ -112,11 +113,11 @@ export const AuthModal: React.FC = () => {
                 className={loginErrors.password ? s.errorInput : ""}
                 placeholder="Пароль"
               />
+              password123
               {loginErrors.password && (
                 <p className={s.errorText}>{loginErrors.password?.message}</p>
               )}
             </div>
-
             <div className={s.placeOrderBtn}>
               <button type="submit">Войти</button>
             </div>
@@ -150,7 +151,6 @@ export const AuthModal: React.FC = () => {
                 <p className={s.errorText}>{registerErrors.email?.message}</p>
               )}
             </div>
-
             <div className={s.formGroup}>
               <input
                 id="password"
@@ -163,7 +163,6 @@ export const AuthModal: React.FC = () => {
                 <p className={s.errorText}>{registerErrors.password?.message}</p>
               )}
             </div>
-
             <div className={s.formGroup}>
               <input
                 id="confirmPassword"
@@ -176,7 +175,6 @@ export const AuthModal: React.FC = () => {
                 <p className={s.errorText}>{registerErrors.confirmPassword?.message}</p>
               )}
             </div>
-
             <div className={s.placeOrderBtn}>
               <button type="submit">Регистрация</button>
             </div>
