@@ -2,7 +2,6 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
 
 export default defineConfig({
-  base: "/ElfenLied/", // Убедитесь, что это имя вашего репозитория
   plugins: [react()],
   resolve: {
     alias: {
@@ -13,4 +12,5 @@ export default defineConfig({
       contexts: "/src/contexts",
     },
   },
+  base: "/ElfenLied/",
 });
